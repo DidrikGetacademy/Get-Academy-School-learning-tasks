@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funksjoner med returverdi</title>
+</head>
+
+<body>
+    <div id="mainDiv"></div>
+    <button onclick="createAndShowHtml('green', 'Hallo verden', 30)">Test 1</button>
+    <button onclick="createAndShowHtml('gray', 'hei på deg!', 20)">Test 2</button>
+    <button onclick="createAndShowHtml('yellow', 'Get academy',10)">Test 3</button>
+
+    <script>
+            function createAndShowHtml(color, text, fontSize) {
+            document.getElementById('mainDiv').innerHTML = `
+            <div ${createStyle(color, fontSize)}>${text}</div>
+            `;
+        }
+
+
+            function createStyle(color, fontSize) {
+            return `style="${createbackgroundColor(color)} ${createFontSize(fontSize)}"`;
+            }
+
+            function createbackgroundColor(color){
+                return `background-color:${color};`;
+            }
+
+            function createFontSize(fontSize){
+                return `font-size: ${fontSize}px;`;
+            }
+
+
+
+
+    </script>
+</body>
+
+</html>

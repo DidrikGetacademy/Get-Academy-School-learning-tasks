@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Definerer dokumentets tegnsett og visningsinnstillinger -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Liste med punkter om emner -->
+    <li>if-setninger</li>
+    <li>logiske verdier</li>
+    <li>sammenligningsoperatorer</li>
+    <script>
+        // Initialisering av variabler
+        let wordCount = 0;
+        let previousWord = '';
+
+        // Kaller addWord-funksjonen med forskjellige ord, farger og fonter
+        addWord('Terje', 'green', 190);
+        addWord('GET Academy', 'orange', 160);
+        addWord('JavaScript', 'blue', 180);
+        addWord('HTML', 'gray', 230);
+        // ... flere kall til addWord ...
+
+        // Definisjon av addWord-funksjonen som legger til ord i dokumentet
+        function addWord(word, color, fontSize) {
+            // Øker ordtelleren
+            wordCount++;
+            // Legger til en span med ord, farge og skriftstørrelse
+            document.body.innerHTML += /*HTML*/`
+            <span style="
+                color: ${color};
+                font-size: ${fontSize}%;            
+                ">
+                ${word}                    
+            </span>
+            `;
+            // Sjekker om det er lagt til 3 ord
+            if (wordCount == 3) {
+                // Legger til en linjeskift og tilbakestiller ordtelleren
+                document.body.innerHTML += '<br/>';
+                wordCount = 0;
+            }
+            // Lagrer det nåværende ordet
+            previousWord = word;
+        }
+
+        // Utkommentert kode som skulle legge til ord direkte
+        // i dokumentet ved å kalle forskjellige funksjoner
+
+        /*
+        // Deklarering og tilordning av variabelen "number"
+        let number = 1;
+        // Legger til et listeelement med variabelens verdi
+        document.body.innerHTML += `<li>${number}</li>`;
+        // Øker variabelens verdi med 1
+        number++;
+        // Legger til et listeelement med den nye verdi
+        document.body.innerHTML += `<li>${number}</li>`;
+        */
+
+    </script>
+</body>
+
+</html>

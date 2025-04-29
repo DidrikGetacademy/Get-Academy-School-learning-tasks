@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting App</title>
+</head>
+
+<body>
+
+    <!-- Knapp som aktiverer funksjonen "increment" når den klikkes -->
+    <button onclick="increment()">+</button>
+    
+    <!-- Element som viser tallet og har ID "output" for enkel manipulasjon -->
+    <button id="output">0</button>
+    
+    <!-- Knapp som aktiverer funksjonen "decrement" når den klikkes -->
+    <button onclick="decrement()">-</button>
+
+    <script>
+        // Henter elementet med ID "output" og lagrer det i variabelen "outputdiv"
+        var outputdiv = document.getElementById('output');
+        
+        // Initialiserer en variabel "numtoshow" med verdien 0
+        var numtoshow = 0;
+
+        // Funksjonen "increment" øker tallet med 1 hvis det er mindre enn 1000
+        function increment() {
+            if (numtoshow < 1000) {
+                numtoshow++;
+            }
+            // Oppdaterer innholdet i "outputdiv" med verdien til "numtoshow"
+            outputdiv.innerHTML = numtoshow;
+        }
+
+        // Funksjonen "decrement" reduserer tallet med 1 hvis det er større enn -1000
+        function decrement() {
+            if (numtoshow > -1000) {
+                numtoshow--;
+            }
+            // Oppdaterer innholdet i "outputdiv" med verdien til "numtoshow"
+            outputdiv.innerHTML = numtoshow;
+        }
+
+
+
+
+      //  numtoshow: Denne variabelen holder tallet som skal vises i HTML-elementet med ID "output". Den starter med verdien 0 og endres når brukeren klikker på knappene for å øke eller redusere tallet.//
+
+//outputdiv: Denne variabelen refererer til HTML-elementet med ID "output". Den brukes til å oppdatere innholdet i dette elementet når verdien av numtoshow endres.//
+
+//Variablene brukes til å lagre og endre verdier som er viktige for funksjonaliteten til tellerappen.//
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="number">0</h1>
+    <button onclick="oneClick()">Klikk</button>
+    <button onclick="buyUpgrade()">Kjøp oppgradering</button> (koster 10 poeng)
+
+    <script>
+        // Definere variabler
+        let pointsPerClick = 1; // Antall poeng per klikk
+        let h1tag = document.getElementById('number'); // Henter h1-elementet med id 'number'
+
+        // Funksjon som kjører når 'Klikk' knappen trykkes
+        function oneClick() {
+            // Hente ut nåværende poengsum
+            let number = parseInt(h1tag.innerHTML);
+
+            // Øke poengsummen med antall poeng per klikk
+            number += pointsPerClick;
+
+            // Oppdaterer poengsummen på nettsiden
+            h1tag.innerHTML = number;
+        }
+
+        // Funksjon som kjører når 'Kjøp oppgradering' knappen trykkes
+        function buyUpgrade() {
+            // Hente ut nåværende poengsum
+            let number = parseInt(h1tag.innerHTML);
+
+            // Sjekk om brukeren har nok poeng til å kjøpe oppgradering
+            if (number >= 10) {
+                // Reduserer poengsummen med kostnaden for oppgraderingen
+                number -= 10;
+
+                // Øker antall poeng per klikk med 1
+                pointsPerClick++;
+
+                // Oppdaterer poengsummen på nettsiden
+                h1tag.innerHTML = number;
+            }
+        }
+
+
+        //Dette er en enkel nettside som lar deg klikke på en knapp for å tjene poeng, og deretter bruke poengene til å kjøpe oppgraderinger som øker antallet poeng du tjener per klikk. //
+       // Her er en beskrivelse av koden://
+
+//Linje 11: Oppretter en h1-tagg med id "number" som viser den nåværende poengsummen.//
+//Linje 12-13: Oppretter to knapper med tilhørende onclick-hendelser som vil kjøre funksjonene oneClick() og buyUpgrade() når knappene trykkes.//
+//Linje 19: Definerer en variabel pointsPerClick som representerer antall poeng du tjener per klikk.//
+//Linje 20: Henter referansen til h1-elementet med id "number" og lagrer det i variabelen h1tag.//
+//Linje 24-33: oneClick()-funksjonen øker poengsummen med pointsPerClick når knappen "Klikk" trykkes. //
+//Den konverterer også innholdet i h1-taggen til et heltall for å utføre beregningene riktig.//
+//Linje 37-47: buyUpgrade()-funksjonen sjekker om brukeren har nok poeng til å kjøpe en oppgradering (kostnaden er 10 poeng). //
+//Hvis brukeren har nok poeng, blir kostnaden trukket fra poengsummen, antallet poeng per klikk økes med 1, og poengsummen blir oppdatert på nettsiden.//
+//Denne koden gir en enkel demonstrasjon av hvordan du kan bruke JavaScript til å interagere med HTML-elementer og oppdatere nettsiden dynamisk basert på brukerhandlingene.//
+    </script>
+</body>
+
+</html>

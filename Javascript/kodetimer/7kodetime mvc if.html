@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Model: Variabler for å holde styr på poeng og spørsmålsnummer
+        let points = 0;
+        let questionNumber = 1;
+
+        // View: Oppdaterer visningen på siden basert på nåværende spørsmål
+        updateView();
+        function updateView() {
+            let question, option1, option2, option3;
+            if (questionNumber == 1) {
+                question = 'Hva slags utdanning har du?';
+                option1 = 'Lite eller ingenting';
+                option2 = 'Bachelor';
+                option3 = 'Master eller mer';
+            } else if (questionNumber == 2) {
+                question = 'Hvor lang erfaring har du?';
+                option1 = '< 3 år ';
+                option2 = '3 - 7 år';
+                option3 = '> 7 år';
+            } else {
+                // Viser resultat når alle spørsmål er besvart
+                document.getElementById('app').innerHTML = /*HTML*/`
+                    Takk. Du fikk ${points} poeng.
+                    <button onclick="restart()">Start på nytt</button>
+                `;
+                return;
+            }
+
+            // Oppdaterer visningen med spørsmål og alternativer
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>${question}</h1>
+                <button onclick="nextQuestion(0)">${option1}</button><br/>
+                <button onclick="nextQuestion(1)">${option2}</button><br/>
+                <button onclick="nextQuestion(2)">${option3}</button><br/>        
+            `;
+        }
+
+        // Controller: Håndterer logikk for neste spørsmål
+        function nextQuestion(gainedPoints) {
+            points += gainedPoints;
+            questionNumber++;
+            updateView();
+        }
+
+        // Controller: Starter på nytt
+        function restart() {
+            points = 0;
+            questionNumber = 1;
+            updateView();
+        }
+
+
+//Dette eksemplet er en enkel implementering av en spørreundersøkelse hvor brukeren blir stilt to spørsmål og får poeng basert på svarene. Her er en forklaring av koden://
+
+//Linje 19-32: updateView()-funksjonen er ansvarlig for å oppdatere visningen på siden basert på nåværende spørsmål. Den bestemmer spørsmålsteksten og alternativene som skal vises, samt det siste resultatet når alle spørsmålene er besvart.//
+//Linje 34-43: nextQuestion(gainedPoints)-funksjonen blir kalt når brukeren velger et alternativ. Den legger til de poengene som brukeren har oppnådd fra det valgte alternativet, øker spørsmålsnummeret og oppdaterer deretter visningen med updateView().//
+//Linje 45-51: restart()-funksjonen blir kalt når brukeren ønsker å starte spørreundersøkelsen på nytt. Den nullstiller både poeng og spørsmålsnummer og oppdaterer visningen.//
+//Denne koden viser hvordan du kan implementere en enkel "modell-visning-kontroller" (MVC) struktur for å lage en interaktiv spørreundersøkelse i nettleseren.//
+    </script>
+</body>
+
+</html>

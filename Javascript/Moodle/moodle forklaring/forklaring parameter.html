@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parametere</title>
+</head>
+
+<body>
+    <!-- Et tomt <div> element med ID "mainDiv" -->
+    <div id="mainDiv"></div>
+
+    <!-- To knapper som aktiverer funksjonene "valgfrittnavn" og "valgtfrittnavn2" -->
+    <button onclick="valgfrittnavn()">test 1</button>
+    <button onclick="valgtfrittnavn2()"> test 2</button>
+
+    <script>
+        // Funksjon som endrer innholdet i <div> elementet til å vise en rød firkant
+        function valgfrittnavn() {
+            document.getElementById('mainDiv').innerHTML = /*html*/`
+                <div style="background-color:red; width: 100%; height: 100px; "></div>  
+            `;
+        }
+
+        // Funksjon som endrer innholdet i <div> elementet til å vise en blå firkant
+        function valgtfrittnavn2() {
+            document.getElementById('mainDiv').innerHTML = /*html*/ `
+                <div style="background-color:blue; width: 100%; height: 100px; "></div>
+            `;
+        }
+
+
+
+           // Denne koden oppretter et <div>-element med ID "mainDiv" og to knapper. //
+         //Når knappene klikkes, blir innholdet i <div>-elementet endret ved hjelp av JavaScript-funksjonene. //
+        //Hver funksjon erstatter innholdet med en firkant med en bestemt bakgrunnsfarge og størrelse.//
+       //kommentarene forklarer hva hver funksjon gjør og hvordan de bruker innerHTML for å manipulere HTML-innholdet.//
+        
+        
+    </script>
+
+    <!-- Slutten av body-elementet -->
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EndreDukken2</title>
+</head>
+<body>
+    <div id="app" class="container"></div>
+
+    <script>
+ //Modell
+let face = 'face'
+let bod = 'bod'
+let legs = 'legs'
+
+let chosenface = 1;
+let chosenbody = 1;
+let chosenlegs = 1;
+
+
+
+ //View
+ View();
+ function View(){
+let html = '';
+html += bodyparts(face, chosenface);
+html += bodyparts(bod, chosenbody);
+html += bodyparts(legs, chosenlegs);
+
+
+
+document.getElementById('app').innerHTML = html;
+ }
+
+
+ function bodyparts(part, partCount){
+let html = '';
+
+html += '<div class="bodyPart">'
+html += /*HTML*/ `<button onclick="nextpart(${part}, 'next')">←</button>`
+html += /*HTML*/ `<img src="${part}${partCount}.png">`
+html += /*HTML*/ `<button onclick="nextpart(${part}, 'previous')">→</button>`
+html += '</div>'
+return html
+ }
+
+ //Controller
+
+ function getpartNumber(direction,partVariable){
+    if(direction === 'next'){
+        if(partVariable == 4){
+            partVariable = 1;
+        }
+        else{
+            partVariable++;
+        }
+    } else{
+       if(partVariable == 1){
+        partVariable = 4;
+       }
+       else{
+        partVariable--;
+       }
+    }
+    return partVariable;
+ }
+
+
+
+
+
+function nextpart(part,direction){
+    if(part == 'face'){
+        chosenface = getpartNumber(direction,chosenface)
+    }
+    else if(part == 'bod'){
+        chosenbody = getpartNumber(direction,chosenbody)
+    }
+    else{
+        chosenlegs = getpartNumber(direction,chosenlegs)
+    }
+    View();
+    }
+
+
+</script>
+</body>
+<style>
+        .container{
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+    }
+
+    .bodyPart {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    img{
+        height: 300px;
+        width: 400px;
+    }
+
+    button{
+        height: 50px;
+        width: 50px;
+    }
+</style>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- To tomme <div> elementer med ulike ID-er -->
+    <div id="tekst1"></div>
+    <div id="tekst2"></div>
+
+
+    <!-- To knapper som aktiverer funksjonene "tekst1" og "tekst2" med ulike argumenter -->
+    <button onclick="tekst11('red','heipådeg',200)">tekst, farge og størrelse</button>
+    <button onclick="tekst22('orange','hallo',600)">tekst, farge og størelse bare større</button>
+
+    <script>
+        // Funksjon som endrer egenskaper for det første <div> elementet
+        function tekst11(color, tekst, width) {
+            var tekst11 = document.getElementById('tekst1');
+            tekst11.style.backgroundColor = color; // Setter bakgrunnsfargen til gitt farge
+            tekst11.innerHTML = tekst; // Setter teksten til det givne teksten
+            tekst11.style.width = width + 'px'; // Setter bredden til gitt bredde i piksler
+        }
+
+        // Funksjon som endrer egenskaper for det andre <div> elementet
+        function tekst22(color, tekst, width) {
+            var tekst22 = document.getElementById('tekst2');
+            tekst22.style.backgroundColor = color; // Setter bakgrunnsfargen til gitt farge
+            tekst22.innerHTML = tekst; // Setter teksten til det givne teksten
+            tekst22.style.width = width + 'px'; // Setter bredden til gitt bredde i piksler
+        }
+    </script>
+</body>
+
+</html>

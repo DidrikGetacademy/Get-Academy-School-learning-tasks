@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mainDiv{
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mainDiv" style="background-color: rgb(100, 20, 200);"></div>
+    <button onclick="moreGreen()">Mer grønt</button>
+    <script>
+        // Henter referansen til hoveddiv-elementet med id 'mainDiv'
+        let mainDiv = document.getElementById('mainDiv');
+        
+        // Funksjon som kjører når knappen "Mer grønt" trykkes
+        function moreGreen(){
+            // Hente ut nåværende bakgrunnsfarge
+            let backgroundColor = mainDiv.style.backgroundColor;
+
+            // Finne indeksene til kommaene i bakgrunnsfargen
+            let firstCommaIndex = backgroundColor.indexOf(',');
+            let secondCommaIndex = backgroundColor.indexOf(',', firstCommaIndex + 1);
+
+            // Deler opp bakgrunnsfargen i tre deler
+            let part1 = backgroundColor.substring(0, firstCommaIndex + 1);
+            let green = backgroundColor.substring(firstCommaIndex + 1, secondCommaIndex);
+            let part2 = backgroundColor.substring(secondCommaIndex);
+            
+            // Øker verdien av den grønne komponenten i fargen
+            green = parseInt(green) + 5;
+
+            // Setter sammen og oppdaterer den nye bakgrunnsfargen
+            mainDiv.style.backgroundColor = part1 + green + part2;
+        }
+
+
+
+//Denne koden demonstrerer hvordan du kan endre fargeverdien dynamisk i et RGB-fargeformat ved å klikke på en knapp. Her er en beskrivelse av koden://
+
+//Linje 12-16: Definerer en CSS-stil for hoveddiv-elementet med id 'mainDiv'. Denne stilen setter bredden og høyden til 300 piksler.//
+//Linje 18-21: Oppretter en hoveddiv med id 'mainDiv' og setter dens bakgrunnsfarge til en spesifikk RGB-verdi.//
+//Linje 22-23: Oppretter en knapp med tilhørende onclick-hendelse som vil kjøre funksjonen moreGreen() når knappen trykkes.//
+//Linje 26: Henter referansen til hoveddiv-elementet med id 'mainDiv' og lagrer den i variabelen mainDiv.//
+//Linje 30-45: moreGreen()-funksjonen henter den nåværende bakgrunnsfargen til hoveddiv-elementet og deler den opp i tre deler: en første del før den grønne komponenten, //
+//selve grønne komponenten og en andre del etter den grønne komponenten. Deretter øker den verdien av den grønne komponenten med 5 og setter sammen den nye bakgrunnsfargen ved å kombinere de tre delene. //
+//Til slutt oppdaterer den bakgrunnsfargen på hoveddiv-elementet ved å tildele den nye fargen til mainDiv.style.backgroundColor.//
+//Denne koden illustrerer hvordan du kan manipulere stilkene til HTML-elementer dynamisk ved hjelp av JavaScript.//
+    </script>
+</body>
+</html>

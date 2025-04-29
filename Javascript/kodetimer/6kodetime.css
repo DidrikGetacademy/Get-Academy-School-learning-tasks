@@ -1,0 +1,27 @@
+Selvfølgelig! Her er forklaringen for de to CSS-reglene:
+
+Regelen for .container:
+
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+
+Denne CSS-regelen gjelder for elementer med klassenavn container.
+display: flex; gjør elementet til en fleksibel beholder, som tillater bruk av Flexbox-layout.
+align-items: center; justerer innholdet vertikalt slik at det er sentrert langs høydeaksen (på midten av beholderen).
+Regelen for .buttons:
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+Denne CSS-regelen gjelder for elementer med klassenavn buttons. 
+display: flex; gjør elementet til en fleksibel beholder, som tillater bruk av Flexbox-layout.
+flex-direction: column; bestemmer retningen på elementene i beholderen til å være i en kolonne, slik at de plasseres vertikalt, ett under det andre.
+align-items: flex-start; justerer innholdet horisontalt slik at det er justert til venstre langs bredden av beholderen. Dette betyr at starten av hvert element vil være justert til venstre i kolonnen.

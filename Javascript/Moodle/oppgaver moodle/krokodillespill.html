@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrokodilleSpill</title>
+</head>
+<body>
+
+    <img style="height: 300px;" src="Krokodille.webp" alt="">
+
+    <div id="firstNum"></div>
+    <input class="input" type="text"></input>
+    <div id="secondNum"></div>
+
+<button onclick="Submit()" style="height: 50px;">Submit</button>
+<button onclick="Reset()" style="height: 50px;">Reset</button>
+
+<div id="score">Points: 0</div>
+
+
+
+
+<script>
+let firstNum = 0;
+let secondNum = 0;
+let score = 0;
+
+function Reset(){
+    updateNumbers();
+}
+
+function updateNumbers(){
+    firstNum = getRandomNumber();
+    secondNum = getRandomNumber();
+    document.getElementById('firstNum').innerHTML = firstNum;
+    document.getElementById('secondNum').innerHTML = secondNum;
+}
+
+function getRandomNumber(){
+    return Math.round(Math.random() * 10);
+}
+
+function Submit(){
+    const inputfield = document.querySelector('.input')
+    const userInput = inputfield.value;
+    const correctOperator = getCorrectOperator();
+
+    if(userInput === correctOperator) {
+        score++;
+    }else{
+        score--;
+    }
+
+    updateScoreDisplay();
+    inputfield.value = '';
+
+}
+
+function getCorrectOperator() {
+
+    if(firstNum < secondNum) {
+        return '<';
+    } else if (firstNum > secondNum) {
+        return '>';
+    }else {
+        return '=';
+    }
+}
+
+function updateScoreDisplay(){
+    const scoreDisplay = document.getElementById('score');
+    scoreDisplay.innerHTML = `points: ${score}`;
+}
+
+
+
+</script>
+
+<style>
+
+
+img{
+    height: 100px; 
+    width: 100px;
+}
+
+.input{
+    width: 50px;
+}
+
+
+</style>
+</body>
+</html>

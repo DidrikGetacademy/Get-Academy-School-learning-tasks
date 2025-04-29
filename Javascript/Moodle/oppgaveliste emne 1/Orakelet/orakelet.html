@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+
+    <script>
+        //modell
+const app = document.getElementById('app');
+const spørsmål = ["Hei","Det vet jeg ikke","det er milliondollar spørsmål","jeg trenger hjelp til det også", "ring ambulanse du"]
+
+
+
+//View
+View();
+function View(){
+    app.innerHTML = /*HTML*/ `
+            <input placeholder="skriv spørsmål til orakelet her" id="InputDiv" type="text">
+            <button onclick="askQuestion()">Spør</button>
+            <div id="result"></div>
+            `;
+        }
+        
+
+         
+        
+        //Controller
+
+
+
+        function bot(){
+            var randomspørsmål = Math.floor(Math.random() * spørsmål.length)
+            return spørsmål[randomspørsmål ]
+
+        }
+        
+        
+        function askQuestion() {
+    let result = document.getElementById('result');
+    let Input = document.getElementById('InputDiv').value;
+    result.innerHTML = '...<br>';
+
+    if (Input === 'Hei' || 'hade' || 'trenger hjelp' || 'hva heter du?')
+
+    {
+        setTimeout(function() {
+            result.innerHTML += 'Bot: '
+            result.innerHTML +=  bot(); 
+        }, 1000);
+    }else if (Input=== 'Kan du hjelpe meg?'){
+        result.innerHTML += 'Bot: '
+        result.innerHTML += spørsmål[3];
+    }
+}
+
+
+
+
+    </script>
+</body>
+</html>

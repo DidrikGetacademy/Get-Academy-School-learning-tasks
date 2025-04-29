@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alderskontroll</title>
+</head>
+<body>
+    <button onclick="checkAge()">Sjekk Alder</button>
+    <div id="result"></div>
+
+    <script>
+        function checkAge() {
+            const age = prompt("Hvor gammel er du?");
+            const resultDiv = document.getElementById('result');
+            
+            if (age < 18) {
+                resultDiv.innerHTML = "Du er ikke gammel nok til å kjøre bil.";
+            } else if (age >= 18 && age < 65) {
+                resultDiv.innerHTML = "Du er gammel nok til å kjøre bil.";
+            } else {
+                resultDiv.innerHTML = "Du er kanskje for gammel til å kjøre bil.";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brukerregistrering</title>
+</head>
+<body>
+    <button onclick="validateUser()">Sjekk brukernavn og passord</button>
+    <div id="result"></div>
+
+    <script>
+        function validateUser() {
+            const username = prompt("Skriv inn brukernavnet ditt:");
+            const password = prompt("Skriv inn passordet ditt:");
+            const resultDiv = document.getElementById('result');
+            
+            if (username.length < 5) {
+                resultDiv.innerHTML = "Brukernavnet må være minst 5 tegn langt.";
+            } else if (password.length < 8) {
+                resultDiv.innerHTML = "Passordet må være minst 8 tegn langt.";
+            } else {
+                resultDiv.innerHTML = "Brukerregistrering vellykket!";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enkel kalkulator</title>
+</head>
+<body>
+    <button onclick="calculate('+')">Addisjon</button>
+    <button onclick="calculate('-')">Subtraksjon</button>
+    <button onclick="calculate('*')">Multiplikasjon</button>
+    <button onclick="calculate('/')">Divisjon</button>
+    <div id="result"></div>
+
+    <script>
+        function calculate(operation) {
+            const num1 = parseFloat(prompt("Skriv inn det første tallet:"));
+            const num2 = parseFloat(prompt("Skriv inn det andre tallet:"));
+            const resultDiv = document.getElementById('result');
+            let result;
+            
+            if (operation === "+") {
+                result = num1 + num2;
+            } else if (operation === "-") {
+                result = num1 - num2;
+            } else if (operation === "*") {
+                result = num1 * num2;
+            } else if (operation === "/") {
+                if (num2 === 0) {
+                    resultDiv.innerHTML = "Kan ikke dele på null.";
+                    return;
+                } else {
+                    result = num1 / num2;
+                }
+            } else {
+                resultDiv.innerHTML = "Ugyldig operasjon.";
+                return;
+            }
+            
+            resultDiv.innerHTML = `Resultat: ${result}`;
+        }
+    </script>
+</body>
+</html>

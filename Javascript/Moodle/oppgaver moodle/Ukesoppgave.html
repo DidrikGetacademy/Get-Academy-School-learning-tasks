@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Ukesoppgave.css">
+
+    <title>Min Nettside</title>
+
+    <head>
+    </head>
+
+<body>
+
+
+
+
+    <div class="navn">
+        <H1><i>Didrik Nathaniel LLoyd AAsland Skjelbred</i></H1>
+    </div>
+
+
+
+    <div class="board">
+        <img class="img square " src="Didrik.jpg" alt="">
+        <div class="square introtekst">
+            <h2>Introduksjonstekst</h2>
+            <h4>
+                <p>Jeg heter Didrik, 23 år gammel fra porsgrunn. jeg har tidligere jobbet som rørlegger, men nå vil jeg
+                    studere et yrke innen for data programmering, data har alltid vært facinerende for meg :=) </p>
+            </h4>
+        </div>
+
+
+
+        <button class="square outlaybutton skiftefarge" id="skiftefarge">
+            <h2>Trykk her for å skifte Farge</h2>
+        </button>
+
+        <div class="square introtekst">
+            <H2>Hobby</H2>
+            <div>
+                <li>Trening fysisk/psykisk </li>
+                <li>gå tur og være aktiv </li>
+                <li>programmere</li>
+            </div>
+
+
+
+            <script>
+
+                var colors = ['red', 'blue', 'green', 'purple', 'orange', 'pink', 'yellow', 'teal', 'brown', 'cyan'];
+                var currentColorIndex = 0;
+
+                function updateView() {
+                    var skiftefargeButton = document.getElementById('skiftefarge');
+                    skiftefargeButton.style.backgroundColor = colors[currentColorIndex];
+                }
+
+                function cycleColors() {
+                    currentColorIndex = (currentColorIndex + 1) % colors.length;
+                    updateView();
+                }
+
+                document.getElementById('skiftefarge').addEventListener('click', cycleColors);
+
+                // Initial color update
+                updateView();
+
+
+            </script>
+
+            <style>
+                div.square {
+                    border: 1px solid grey
+                }
+
+                div.board {
+                    display: grid;
+                    grid-template-columns: repeat(2, 20rem);
+                    grid-template-rows: repeat(2, 15rem);
+                }
+
+                .buttons {
+                    width: 40rem;
+                    flex-direction: column;
+                    align-items: flex-end
+                }
+
+                .containerbutton {
+                    padding: 20;
+                    border-radius: 5px;
+                    background-color: #3498db;
+                    color: #00ff62;
+                    border: 1px solid blue;
+                    width: 40rem;
+                    flex-direction: column;
+                    align-items: flex-end;
+
+                }
+
+
+                img {
+                    width: 100%;
+                }
+
+
+
+                .outlaybutton {
+                    background-color: #0a175f;
+                    color: #e90e0e;
+                }
+
+                .navn {
+                    text-align: center;
+                    padding: 10px;
+                    background-color: #3498db;
+                    width: 620px;
+                }
+
+                .introtekst {
+                    text-align: center;
+                    background-color: orange;
+                    padding: 10px;
+                    border-radius: 120%;
+                    width: auto;
+                }
+
+
+                .hobby {
+                    border-radius: 70%;
+                    background-color: orange;
+
+                }
+
+                .skiftefarge {
+                    border-radius: 45%;
+                    border-color: #00ff62 red blue orange;
+                    border-bottom-left-radius: 5px;
+                    border-top-left-radius: 5px;
+                }
+            </style>
+</body>
+
+</html>

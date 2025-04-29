@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="app"></div>
+    
+
+<script>
+//modell
+const app = document.getElementById('app');
+let result = '';
+
+
+
+
+
+//View
+View();
+function View(){
+app.innerHTML = /*html*/ `
+
+
+<div>gjett hvilket tall jeg tenker på</div> 
+<input type="number" id="userInput">
+<button onclick="guessNumber()">gjett</button>
+<div>${result}</div>
+`;
+}
+
+
+
+
+
+//Controller
+function guessNumber(){
+  let userInput = parseInt(document.getElementById('userInput').value);
+  let riktigTall = Math.floor(Math.random() * 10);
+
+  if(userInput === riktigTall){
+    result += userInput + ' du gjettet riktig<br>';
+  }
+  else if(userInput < riktigTall){
+    result += userInput + ' for lavt<br>';
+  }
+  else {
+    result += userInput + ' for høyt<br>';
+  }
+
+
+View();
+}
+
+
+
+
+
+  /*1. Lag et input felt hvor man kan skrive inn tall å tippe på 
+    2.Lag en knapp som sjekker om tallet er for høyt, for lavt eller om man har gjettet riktig. 
+    3. Vis om man har gjettet for høyt eller for lavt - eller riktig 
+    4. Om man gjetter riktig - vis det på skjermen på en artig måte smile
+
+    Denne oppgaven løser du med: MVC, If/Else og Math.random().*/
+</script>
+ </body>
+</html>

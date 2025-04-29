@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunksjonParameter</title>
+
+    <style>
+        
+
+        .buttons {
+            background-color: red;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+        
+    <div id="maindiv"></div>
+
+        <button class="buttons" onclick="boks1('blue','Didrik',50,75)">Knapp som endrer farge tekst og størrelse 1</button>
+        <button class="buttons" onclick="boks1('red','Getacademy',60,120)">Knapp som endrer farge tekst og størrelse 2</button>
+        
+        <script>
+            function boks1(color,tekst,width,height) {
+
+        document.getElementById('maindiv').innerHTML = /*html*/`
+        <div style="background-color:${color}; width: ${width}%; height:${height}px;">${tekst}</div>
+           `;
+        }
+
+        
+        function boks1(color,tekst,width,height) {
+            document.getElementById('maindiv').innerHTML = /*html*/`
+           <div style="background-color:${color}; width: ${width}%; height:${height}px; ">${tekst}</div>
+           `;
+        }
+        
+
+ </script>
+
+</body>
+
+</html>

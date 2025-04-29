@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for løkker</title>
+</head>
+<body>
+
+    <div>letters
+<div id="letters"></div>
+<button onclick="printLetters('hei på deg')">Print letters</button>
+    </div>
+
+
+    <script>
+        // legg til et mellomrom mellom hvert tegn i tekst-stringen
+        // h e i p å d e g 
+        // 0 1 2 3 4 5 6 7
+
+
+        function printLetters(inputString){
+            let text = '';
+            
+            for(let index=0; index<=inputString.length; index++){
+                text = text + inputString.charAt(index) + ' ';
+            }
+            document.getElementById('letters').innerHTML += text;
+        }
+    </script>
+
+
+
+</body>
+
+</html>

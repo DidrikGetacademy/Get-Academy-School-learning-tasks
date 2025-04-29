@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave funksjoner med returverdi</title>
+</head>
+<body>
+    
+    <div id="mainDiv"></div>
+    <button onclick="createAndShowHtml('green', 'Hallo verden', 30, 100)">Test 1</button>
+    <button onclick="createAndShowHtml('gray', 'hei på deg!', 20, 75)">Test 2</button>
+    <button onclick="createAndShowHtml('yellow', 'Get academy',10, 40)">Test 3</button>
+
+<script>
+
+function createAndShowHtml(color, text, fontSize, width) {
+            document.getElementById('mainDiv').innerHTML = `
+            <div ${createStyle(color, fontSize, width)}>${text}</div>
+            `;
+        }
+
+
+            function createStyle(color, fontSize, width) {
+            return `style="${createbackgroundColor(color)} ${createFontSize(fontSize)} ${widthstyle(width)}"`;
+            }
+
+            function createbackgroundColor(color){
+                return `background-color:${color};`;
+            }
+
+            function createFontSize(fontSize){
+                return `font-size: ${fontSize}px;`;
+            }
+
+            function widthstyle(width){
+                return `width: ${width}px;`;
+
+            }
+
+
+
+
+/* Funksjoner med returverdi
+Vi kan kjøre en funksjon -> da vil kodelinjenene innenfor funksjonen kjøre setning for setning frem til den når slutten.
+ Men hva skjer dersom vi har en verdi vi ønsker å beregne og ta vare på, eller noe vi vil ha ut igjen fra funksjonen som vi vil bruke videre ellers i koden? Funksjoner kan også returnere en verdi! 
+ Det gjør vi ved å bruke nøkkelordet return. Vi vil lage en funksjon som beregner alder basert på hvilket årstall man er født.
+function getAge(yearOfBirth){
+
+let todaysDate = new Date(); //innebygd javascript funksjon som henter datens dato
+let year = todaysDate.getFullYear(); //henter ut årstall fra dagens dato
+let age = year - yearOfBirth;
+ return age;
+ }
+når vi bruker denne funksjonen kan vi ta imot returverdien ved å tilordne den til en variabel slik:
+       
+let myAge = getAge(1988);
+myAge vil da variere utfra hvilket årstall vi befinner oss i! Dette året er 2022- da får myAge verdien 34. Neste år vil den koden returnere 35 etc. */
+
+
+
+/*Oppgave - kan du returnere?
+Ta utgangspunkt i koden fra videoen ovenfor, så legg til et parameter til, f.eks: text-farge, border eller noe annet. Lag en funksjon til som returnerer den endringen, uten å endre det som står fra før, bare legge til.
+Løsningsforslag: https://github.com/ThereseCamK/returnOppgave/blob/main/returnOppgaveL%C3%B8sning.html*/
+    </script>
+</body>
+</html>

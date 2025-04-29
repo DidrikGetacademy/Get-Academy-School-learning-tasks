@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HandleListe</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //modell
+        let Handlekurv = [
+            "eple",
+            "banan",
+            "mel",
+            "egg",
+            "smør",
+            "melk",
+            "coca cola",
+        ]
+
+        //view
+        View();
+
+        function View() {
+            let html = '';
+
+            html += /*HTML*/ `
+            <input placeholder="legg til vare" id="InputleggTil">
+            <button onclick="LeggtilVare()">Legg til vare</button>
+            `;
+
+            html += /*HTML*/ `<ul>`;
+            for (let i = 0; i < Handlekurv.length; i++) {
+                html += `<li>${Handlekurv[i]}
+                    <button onclick="deleteItem(${i})">Slett</button>
+                    <button onclick="changeItem(${i})">Endre</button>
+                    <input placeholder="endre vare navn" id="endreInput${i}">
+                    </li>`;
+            }
+            html += `</ul>`;
+            document.getElementById('app').innerHTML = html;
+        }
+
+        //controller
+        function LeggtilVare() {
+            let inputAdd = document.getElementById('InputleggTil').value;
+            Handlekurv.push(inputAdd); 
+            View();
+        }
+
+        function deleteItem(index){
+            Handlekurv.splice(index, 1);
+            View();
+        }
+
+        function changeItem(index) {
+            const newVareNavn = document.getElementById(`endreInput${index}`).value;
+            if (newVareNavn !== "") {
+                Handlekurv[index] = newVareNavn;
+                View();
+            }
+        }
+
+    </script>
+</body>
+
+</html>

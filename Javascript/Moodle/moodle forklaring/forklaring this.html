@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This</title>
+
+    <!-- Stildefinisjoner -->
+    <style>
+        /* Stil for fargerike bokser */
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+
+        .pink {
+            background-color: pink;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Bokser med klikkfunksjoner -->
+    <div onclick="changeColor(this)" class="pink box"></div>
+    <div onclick="changeColor2(this)" class="red box"></div>
+    <div onclick="changeColor3(this)" class="blue box"></div>
+
+    <script>
+        // Funksjon for å endre farge på den klikkede boksen
+        function changeColor(element) {
+            element.style.backgroundColor = "green";
+            element.innerHTML = 'Hei';
+        }
+
+        function changeColor2(element) {
+            element.style.backgroundColor = "purple";
+            element.innerHTML = "på";
+        }
+
+        function changeColor3(element) {
+            element.innerHTML = "Deg";
+            element.style.backgroundColor = "yellow";
+        }
+    </script>
+
+    <!-- Tekstfelt og "tastatur" -->
+    <input type="text" id="tekstboks" style="height: 50px; width: 250px;"><br>
+    <div id="tastatur">
+        <button onclick="pressA(this)">A</button>
+        <button onclick="pressB(this)">B</button>
+        <button onclick="pressC(this)">C</button>
+        <button onclick="pressD(this)">D</button>
+        <button onclick="pressE(this)">E</button>
+        <button onclick="pressF(this)">F</button>
+        <button onclick="pressG(this)">G</button>
+        <button onclick="pressH(this)">H</button>
+    </div>
+
+    <script>
+        // Referanse til tekstboks-elementet
+        var tekstboksDiv = document.getElementById('tekstboks');
+
+        // Funksjoner for å legge til bokstaver i tekstfeltet ved trykk på knapper
+        function pressA(element) {
+            tekstboksDiv.value += "A";
+        }
+
+        function pressB(element) {
+            tekstboksDiv.value += "B";
+        }
+
+
+        function pressD(element) {
+            tekstboksDiv.value += "D"
+        }
+        function pressE(element) {
+            tekstboksDiv.value += "E"
+        }
+
+        function pressF(element) {
+            tekstboksDiv.value += "F"
+        }
+
+        function pressG(element) {
+            tekstboksDiv.value += "G"
+        }
+
+        function pressH(element) {
+            tekstboksDiv.value += "H"
+        }
+
+        // Gjenta de samme funksjonene (pressC, pressD osv.) for andre bokstaver
+
+
+
+        //Denne koden oppretter et enkelt interaktivt grensesnitt der du kan endre fargen på bokser ved å klikke på dem, og du kan også skrive inn tekst ved å trykke på knapper. //
+        //Kommentarene forklarer hva hver del av koden gjør, inkludert bokser, farger, knapper, funksjoner for fargeendring og funksjoner for å legge til bokstaver i tekstfeltet ved trykk på knapper.//
+    </script>
+
+
+</body>
+
+</html>

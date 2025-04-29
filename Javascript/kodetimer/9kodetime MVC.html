@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+
+        //Modell
+        let sarkasamFlag = '...'
+        let sarkasamResult = 'her kommer det en tekst som sier noe om inputen er sarksastisk eller ikke'
+        let inputText;
+        let something = true;
+
+
+        //view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/
+            `   
+            <input onchange="setInputText(this.value)">
+            <div id="resultView">${sarkasamResult}</div>
+            `
+
+
+        }
+        //controller
+        function setInputText(input) {
+            inputText = input;
+            something = checkTextForSarcasm(inputText);
+            updateView();
+            // tiltenk oppdatere med bilde av en apekatt
+        }
+        /* function booleanCheck(){
+             if(something){
+                 //something = true
+             }
+         }*/
+
+        function checkTextForSarcasm(text) {
+            if (text.includes(sarkasamFlag)) {
+                sarkasamResult = 'sarkastisk!!!'
+                return true;
+            } else {
+                sarkasamResult = 'ikke sarkastisk!!!'
+                return false;
+            }
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

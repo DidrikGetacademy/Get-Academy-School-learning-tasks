@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fargeknapp</title>
+</head>
+
+<body>
+    <div id="mydiv">Hei</div>
+    <button onclick="setColor('pink')">change color to pink</button>
+    <button onclick="setColor('blue')">change color to blue</button>
+    <button onclick="changeText('')">change text</button>
+    <input id="myInput" onchange="setText()">
+    <input onchange="setTextWithThis(this.value)">
+
+
+    <script>
+        let currentColor;
+        let currentText;
+        let isPink = true;
+
+        /*function changecolortopink(){
+            document.getElementById('mydiv').style.backgroundColor = 'pink'
+        }
+        
+        function changecolortoblue(){
+            document.getElementById('mydiv').style.backgroundColor = 'blue'
+        }*/
+
+        /*function changecolor(color){
+            document.getElementById('mydiv').style.backgroundColor = 'color'
+        }*/
+
+        TogglePink();
+        function TogglePink(){
+            if (ispink == true) {
+                document.getElementById('mydiv').style.backgroundColor = 'pink'
+            }else{
+                document.getElementById('mydiv').style.backgroundColor = 'Blue'
+            }
+        }
+
+
+        function changeText(text) {
+            document.getElementById('mydiv').innerHTML = text
+        }
+
+        function setColor(color) {
+            currentColor = color;
+            updateView();
+        }
+
+        function updateView() {
+            document.getElementById('mydiv').style.backgroundColor = currentColor;
+            document.getElementById('mydiv').innerHTML = currentText;
+        }
+
+
+        function setText() {
+            currentText = document.getElementById('myInput').value
+        }
+        function setTextWithThis(inputValue) {
+            currentText = inputValue
+        }
+
+
+
+    </script>
+</body>
+
+</html>

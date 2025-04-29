@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .championsoutlay {
+            display: flex;
+            flex-direction: flex;
+        }
+
+        .arena {
+            display: flex;
+            width: 1450px;
+            height: 250px;
+            position: relative;
+            top: 150px;
+            background: lightgrey;
+            padding: 10px;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Modell
+        let luigiDamage = 25;
+        let luigiHealth = 100;
+        let luigi = /*html*/ ` <img   style="height: 200px;" src="luigi.png" alt="">  `;
+
+        let marioDamage = 50;
+        let marioHealth = 100;
+        let mario = /*html*/ ` <img  style="height: 200px;" src="mario.png" alt="">`;
+
+        let peachDamage = 20;
+        let peachHealth = 100;
+        let peach = /*html*/ ` <img  style="height: 200px;" src="peach.png" alt="">`;
+
+        let yoshiDamage = 30;
+        let yoshiHealth = 100;
+        let yoshi = /*html*/ ` <img  style="height: 200px;" src="yoshi.png" alt="">  `;
+
+        let toadHeal = 35;
+        let toadHealth = 100;
+        let toad = /*html*/ ` <img  style="height: 200px;" src="toad.png" alt="">  `;
+
+        let bwsmushHeal = 35;
+        let bwsmushhealth = 100;
+        let bwsmush = /*html*/ ` <img  style="height: 200px;" src="bwsmush.png" alt="">`;
+
+        let bowserdamage = 25;
+        let bowserHealth = 100;
+        let bowser = /*html*/ `<img  style="height: 200px;" src="bowser.png" alt=""> `;
+
+        let selectedChampion = '';
+
+
+
+        // View
+        updateview();
+
+        function updateview() {
+            app = document.getElementById('app');
+            app.innerHTML += /*HTML*/ `
+    <div class="championsoutlay">
+    <div id="luigiContainer" onclick="selected(this, 'luigi')">${luigi} <br> health: ${luigiHealth} <br> damage: ${luigiDamage} </div> 
+    <div id="marioContainer" onclick="selected(this, 'mario')">${mario} <br> health: ${marioHealth} <br> damage: ${marioDamage}</div> 
+    <div id="peachContainer" onclick="selected(this, 'peach')">${peach} <br> health: ${peachHealth} <br> damage: ${peachDamage}</div> 
+    <div id="yoshiContainer" onclick="selected(this, 'yoshi')">${yoshi} <br> health: ${yoshiHealth} <br> damage: ${yoshiDamage}</div> 
+    </div>
+
+
+
+<div class="arena">
+<div id="bwsmushContainer">${bwsmush} <br> health: ${bwsmushhealth} <br> heal: ${bwsmushHeal} hp
+<button onclick="giveBowserHealth()">give Health</button>
+    
+</div>   
+<div id="bowserContainer">${bowser} <br> health: ${bowserHealth} <br> damage: ${bowserdamage} 
+<button onclick="BowserAttack()">Attack</button>
+</div>
+
+<h1>VS</h1>
+
+<div id="selectedArena">
+<button onclick="championsAttack()">AttackBowser</button>
+</div>
+
+<div id="toadContainer">${toad} <br> health: ${toadHealth} <br> ${toadHeal} hp
+<button onclick="giveSelectedChampionHealth()">give Health</button>
+</div> 
+</div>
+`;
+        }
+
+
+
+
+
+        // Controller
+-        function selected(champion, name) {
+            var selectedArena = document.getElementById('selectedArena');
+            selectedArena.appendChild(champion);
+            selectedChampion = name;
+        }
+
+
+
+        function championsAttack() {
+            let damage = 0;
+
+            if (selectedChampion === 'mario') {
+                damage = marioDamage;
+            } else if (selectedChampion === 'luigi') {
+                damage = luigiDamage;
+            } else if (selectedChampion === 'peach') {
+                damage = peachDamage;
+            } else if (selectedChampion === 'yoshi') {
+                damage = yoshiDamage;
+            }
+
+            if (damage > 0) {
+                bowserHealth -= damage;
+                if (bowserHealth < 0) {
+                    bowserHealth = 0;
+                }
+            }
+
+            let bowserHealthElement = document.getElementById('bowserContainer');
+            if (bowserHealthElement) {
+                bowserHealthElement.innerHTML = /*HTML*/ `${bowser} <br> health: ${bowserHealth} <br> damage: ${bowserdamage} <button onclick="BowserAttack()">Attack</button> `;
+
+                if (bowserHealth <= 0) {
+                    bowserHealthElement.innerHTML = /*HTML*/ `${bowser} <br> health: 0 <br> damage: ${bowserdamage} <br> Bowser is defeated!`;
+
+                }
+            }
+        }
+
+        function giveSelectedChampionHealth() {
+        }
+
+
+
+
+        function BowserAttack() {
+            let luigiHealthElement = document.getElementById('luigiContainer');
+            let marioHealthElement = document.getElementById('marioContainer');
+            let peachHealthElement = document.getElementById('peachContainer');
+            let yoshiHealthElement = document.getElementById('yoshiContainer');
+
+
+            if (selectedChampion === 'mario') {
+                marioHealth -= bowserdamage;
+            }
+            else if (selectedChampion === 'peach') {
+                peachHealth -= bowserdamage;
+            }
+            else if (selectedChampion === 'luigi') {
+                luigiHealth -= bowserdamage;
+            }
+            else if (selectedChampion === 'yoshi') {
+                yoshiHealth -= bowserdamage;
+            }
+
+
+            if (luigiHealthElement) {
+                luigiHealthElement.innerHTML = /*HTML*/ `${luigi} <br> health: ${luigiHealth} <br> damage: ${luigiDamage}</div>`;
+
+                if (luigiHealth <= 0) {
+                    luigiHealthElement.innerHTML = /*HTML*/ `${luigi} <br> health: 0 <br> damage: ${luigiDamage} <br> Luigi is defeated!`;
+                }
+            }
+
+
+
+            if (peachHealthElement) {
+                peachHealthElement.innerHTML = /*HTML*/ ` ${peach} <br> health: ${peachHealth} <br> damage: ${peachDamage}</div>`;
+
+                if (peachHealth <= 0) {
+                    peachHealthElement.innerHTML = /*HTML*/ `${peach} <br> health: 0 <br> damage: ${peachDamage} <br> peach is defeated!`;
+                }
+            }
+
+
+
+            if (marioHealthElement) {
+                marioHealthElement.innerHTML = /*HTML*/ `${mario} <br> health: ${marioHealth} <br> damage: ${marioDamage}</div>  `;
+
+                if (marioHealth <= 0) {
+                    marioHealthElement.innerHTML = /*HTML*/ `${mario} <br> health: 0 <br> damage: ${marioDamage} <br> mario is defeated!`;
+                }
+            }
+
+            if (yoshiHealthElement) {
+                yoshiHealthElement.innerHTML = /*HTML*/ `${yoshi} <br> health: ${yoshiHealth} <br> damage: ${yoshiDamage}</div>  `;
+                if (yoshiHealth <= 0) {
+                    yoshiHealthElement.innerHTML = /*HTML*/ `${yoshi} <br> health: 0 <br> damage: ${yoshiDamage} <br> yoshi is defeated! </div>`;
+                }
+            }
+        }
+
+
+
+
+        function giveSelectedChampionHealth() {
+            let marioDiv = document.getElementById('marioContainer');
+            let peachDiv = document.getElementById('peachContainer');
+            let luigiDiv = document.getElementById('luigiContainer');
+            let yoshiDiv = document.getElementById('yoshiContainer');
+            if(selectedChampion === 'mario'){
+                marioHealth += toadHeal;
+                if(marioHealth >= 100){
+                    marioHealth = 100;
+                }
+                
+                
+                   
+            
+            }else if(selectedChampion === 'peach'){
+                peachHealth += toadHeal;
+                if(peachHealth >= 100){
+                    peachHealth = 100;
+                }
+            }
+            else if(selectedChampion === 'luigi'){
+                luigiHealth += toadHeal;
+                if(luigiHealth >= 100){
+                    luigiHealth = 100;
+                }
+            }
+            else if(selectedChampion === 'yoshi'){
+                yoshiHealth += toadHeal;
+                if(yoshiHealth >= 100){
+                    yoshiHealth = 100;
+                }
+            }
+
+            yoshiDiv.innerHTML = /*HTML*/ `${yoshi} <br> health: ${yoshiHealth} <br> damage: ${yoshiDamage}</div> `;
+            luigiDiv.innerHTML = /*HTML*/ `${luigi} <br> health: ${luigiHealth} <br> damage: ${luigiDamage} </div> `;
+            marioDiv.innerHTML = /*HTML*/ `${mario} <br> health: ${marioHealth} <br> damage: ${marioDamage}</div> `;
+            peachDiv.innerHTML = /*HTML*/ `${peach} <br> health: ${peachHealth} <br> damage: ${peachDamage}</div> `;
+        }
+
+
+
+
+        function giveBowserHealth() {
+            let bowserDiv = document.getElementById('bowserContainer')
+            bowserHealth += bwsmushHeal
+            if (bowserHealth > 100) {
+                bowserHealth = 100;
+            }if (bowserDiv) {
+                bowserDiv.innerHTML = /*html*/ ` ${bowser} <br> health: ${bowserHealth} <br> damage: ${bowserdamage} <button onclick="BowserAttack()">Attack</button>`;
+            }
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

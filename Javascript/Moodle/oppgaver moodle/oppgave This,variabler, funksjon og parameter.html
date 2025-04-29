@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This</title>
+
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px
+        }
+
+        .pink {
+            background-color: pink;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div onclick="changeColor(this)" class="pink box"></div>
+    <div onclick="changeColor2(this)" class="red box"></div>
+    <div onclick="changeColor3(this)" class="blue box"></div>
+
+
+
+
+    <script>
+
+        function changeColor(element) {
+            element.style.backgroundColor = "green";
+            element.innerHTML = 'Hei';
+
+        }
+
+        function changeColor2(element) {
+            element.style.backgroundColor = "Purple";
+            element.innerHTML = "på";
+        }
+
+        function changeColor3(element) {
+            element.innerHTML = "Deg";
+            element.style.backgroundColor = "yellow";
+        }
+
+
+
+
+
+
+    </script>
+        <input type="text" id="tekstboks" style="height: 50px; width: 250px;"><br>
+
+        <div id="tastatur">
+            <button onclick="pressA(this)">A</button>
+            <button onclick="pressB(this)">B</button>
+            <button onclick="pressC(this)">C</button>
+            <button onclick="pressD(this)">D</button>
+            <button onclick="pressE(this)">E</button>
+            <button onclick="pressF(this)">F</button>
+            <button onclick="pressG(this)">G</button>
+            <button onclick="pressH(this)">H</button>
+        </div>
+
+
+
+        <script>
+var tekstboksDiv = document.getElementById('tekstboks');
+
+function pressA(element){
+    tekstboksDiv.value += "A"  
+    console.log()
+}
+
+function pressB(element){
+   tekstboksDiv.value += "B"
+}
+
+function pressC(element){
+    tekstboksDiv.value += "C"
+}
+
+function pressD(element){
+    tekstboksDiv.value += "D"
+}
+function pressE(element){
+    tekstboksDiv.value += "E"
+}
+
+function pressF(element){
+   tekstboksDiv.value += "F"
+}
+
+function pressG(element){
+    tekstboksDiv.value += "G"
+}
+
+function pressH(element){
+    tekstboksDiv.value += "H"
+}
+</script>
+
+
+
+
+
+    
+
+</body>
+
+</html>

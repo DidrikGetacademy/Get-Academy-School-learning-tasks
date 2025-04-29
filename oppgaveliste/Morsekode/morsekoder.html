@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          .textClass{
+        font-size: 200%;
+    }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+
+    <script>
+        //modell
+        const app = document.getElementById('app');
+        const morseCodeArray = [ '.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..', ' ', '·−·−', '−−−·', '·−−·−'];
+        const alphabetArray = "abcdefghijklmnopqrstuvwxyz æøå";
+        let userInput = " ";
+        let morseCode = "";
+
+
+        //View
+        View();
+        function View(){
+            app.innerHTML = `
+            
+            <div class="textClass">
+                <div>Oversett til morsekode<div>
+                    <input type="text" onchange="userInputText(this)">
+                <div>${userInput}<div>
+            </div>
+            
+            <div><h6>${morseCode}<h6></div>
+            
+            
+            `;
+        }
+
+
+ function userInputText(textFromUserInput){
+    userInput = textFromUserInput.value.toUpperCase();
+    for(letters of textFromUserInput.value){
+        let singleUserLetterInput = letters
+        let Morseletters = alphabetArray.indexOf(singleUserLetterInput);
+        morseCode += morseCodeArray[Morseletters] + " ";
+    }
+
+
+    View();
+    morseCode = " ";
+        }
+    </script>
+</body>
+</html>

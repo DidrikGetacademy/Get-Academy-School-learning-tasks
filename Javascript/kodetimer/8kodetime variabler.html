@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="nameDiv"></div>
+    <div id="placeDiv">Jeg bor i: </div>
+    <div id="foodDiv">Favoritt maten min er:</div>
+    <button onclick="setName(this)">Marie</button>
+    <button onclick="setName(this)">Bjarne</button>
+    <button onclick="setName(this)">Truls</button>
+    <button onclick="setFood(this)">Pizza</button>
+    <button onclick="setFood(this)">Taco</button>
+    <button onclick="setFood(this)">Lasagne</button>
+    <button onclick="setPlace(this)">Sandefjord</button>
+    <button onclick="setPlace(this)">Tønsberg</button>
+    <button onclick="setPlace(this)">Larvik</button>
+    <script>
+        // Modell (M) - Data som skal oppdateres
+        let name = "";
+        let place = "";
+        let favoriteFood = "";
+
+        // View (V) - Oppdaterer grensesnittet basert på modellens data
+        updateView();
+        function updateView(){
+            document.getElementById('nameDiv').innerHTML = 'Jeg heter:' + name;
+            document.getElementById('foodDiv').innerHTML = 'Favorittmaten min er: ' + favoriteFood;
+            document.getElementById('placeDiv').innerHTML = 'Jeg bor i:' + place;
+        }
+        
+        // Controller (C) - Responsiv for interaksjon med brukeren
+        function setName(buttonClicked){
+            name = buttonClicked.innerHTML;
+            updateView(); // Oppdaterer grensesnittet etter endringen
+        }
+
+        function setFood(buttonClicked){
+            favoriteFood = buttonClicked.innerHTML;
+            updateView();
+        }
+        
+        function setPlace(buttonClicked){
+            place = buttonClicked.innerHTML;
+            updateView();
+        }
+
+//Denne koden viser et enkelt eksempel på MCV (Model-View-Controller) arkitektonisk mønster. Her er en oppsummering av hva som skjer://
+
+//Modell (M): Variablene name, place, og favoriteFood holder på dataene om brukerens navn, bosted og favorittmat.//
+
+//View (V): updateView() funksjonen blir kalt for å oppdatere HTML-elementene med riktig informasjon fra modellen. Den henter elementene med getElementById() og setter innholdet til tekstene med tilhørende data fra modellen.//
+
+//Controller (C): Funksjonene setName(buttonClicked), setFood(buttonClicked) og setPlace(buttonClicked) blir kalt når brukeren klikker på knappene. De oppdaterer den tilhørende informasjonen i modellen og kaller deretter updateView() for å oppdatere grensesnittet.//
+
+//Dette gir en enkel demonstrasjon av hvordan MCV-mønsteret separerer data, visning og kontroll i en webapplikasjon for å gjøre koden mer strukturert og vedlikeholdbar.//
+    </script>
+</body>
+</html>

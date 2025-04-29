@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVC</title>
+</head>
+<body>
+    
+<div id="app"></div>
+
+<script>
+//modell
+let Landet = "___";
+let Navnet = "___";
+
+
+
+//view
+updateview();
+function updateview(){
+    let html = `
+    
+    <div class="group tekst"><div>mitt navn er</div>${Navnet} og jeg bor i ${Landet}</div></div>
+    
+    
+    
+    <button onclick="skiftTilNorge()" class="buttons">Norge</button>
+    <button onclick="skiftTilDidrik()" class="buttons">Didrik</button>
+    
+    `;
+    document.getElementById('app').innerHTML = html;
+}
+    
+
+
+
+
+function skiftTilNorge(){
+    Landet = "Norge";
+    updateview();
+}
+
+function skiftTilDidrik(){
+    Navnet = "Didrik";
+    updateview()
+}
+
+
+
+
+
+//controller
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.buttons{
+    background-color: lightblue;
+    width: 50px;
+    height: 50px;
+    border-radius: 60px;
+}
+
+.group{
+display: flex;
+flex-direction: row;
+gap: 5px;
+}
+
+.tekst{
+    width: 250px;
+    height: 20px;
+    background-color: lightgrey;
+}
+</style>
+
+</body>
+</html>

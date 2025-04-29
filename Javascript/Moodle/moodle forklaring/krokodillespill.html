@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrokodilleSpill</title>
+</head>
+<body>
+
+    <!-- Vis et bilde -->
+    <img style="height: 300px;" src="Krokodille.webp" alt="">
+
+    <!-- Vis det første tilfeldige tallet -->
+    <div id="firstNum"></div>
+    
+    <!-- Inndatafelt for brukerens gjetning på operatør -->
+    <input class="input" type="text"></input>
+    
+    <!-- Vis det andre tilfeldige tallet -->
+    <div id="secondNum"></div>
+
+    <!-- Knapp for å sende brukerens gjetning -->
+    <button onclick="Submit()" style="height: 50px;">Send</button>
+    
+    <!-- Knapp for å tilbakestille tall og spill -->
+    <button onclick="Reset()" style="height: 50px;">Tilbakestill</button>
+    
+    <!-- Vis gjeldende poengsum -->
+    <div id="score">Poeng: 0</div>
+
+    <!-- JavaScript-koden starter her -->
+    <script>
+    // Initialiser variabler for firstNum, secondNum og score
+    let firstNum = 0;
+    let secondNum = 0;
+    let score = 0;
+
+    // Funksjon for å tilbakestille tall og spill
+    function Reset(){
+        updateNumbers();
+    }
+
+    // Funksjon for å oppdatere tilfeldige tall
+    function updateNumbers(){
+        firstNum = getRandomNumber();
+        secondNum = getRandomNumber();
+        
+        // Vis de oppdaterte tallene
+        document.getElementById('firstNum').innerHTML = firstNum;
+        document.getElementById('secondNum').innerHTML = secondNum;
+    }
+
+    // Funksjon for å generere et tilfeldig tall mellom 1 og 10
+    function getRandomNumber(){
+        return Math.round(Math.random() * 10);
+    }
+
+    // Funksjon for å håndtere brukerens gjetning
+    function Submit(){
+        const inputfield = document.querySelector('.input')
+        const userInput = inputfield.value;
+        
+        // Hent riktig operatør basert på de tilfeldige tallene
+        const correctOperator = getCorrectOperator();
+
+        // Sjekk om brukerens gjetning er riktig
+        if(userInput === correctOperator) {
+            score++; // Øk poengsummen hvis riktig
+        } else {
+            score--; // Reduser poengsummen hvis feil
+        }
+
+        // Oppdater visningen av poengsummen og tilbakestill inndatafeltet
+        updateScoreDisplay();
+        inputfield.value = '';
+    }
+
+    // Funksjon for å bestemme riktig operatør basert på tallenes forhold
+    function getCorrectOperator() {
+        if(firstNum < secondNum) {
+            return '<';
+        } else if (firstNum > secondNum) {
+            return '>';
+        } else {
+            return '=';
+        }
+    }
+
+    // Funksjon for å oppdatere visningen av poengsummen på nettsiden
+    function updateScoreDisplay(){
+        const scoreDisplay = document.getElementById('score');
+        scoreDisplay.innerHTML = `Poeng: ${score}`;
+    }
+    </script>
+
+    <!-- CSS-styling -->
+    <style>
+    img{
+        height: 100px; 
+        width: 100px;
+    }
+
+    .input{
+        width: 50px;
+    }
+    </style>
+</body>
+</html>

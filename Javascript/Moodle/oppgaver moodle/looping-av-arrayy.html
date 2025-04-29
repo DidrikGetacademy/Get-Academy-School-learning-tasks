@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oppgave 2</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+
+
+    <script>
+        //modell
+        let inputValue = '';
+        let handlekurv = ['batteryFresh', 'Stratos', 'vaffler', 'siberia', 'FlaxLodd',];
+
+
+        //View
+        updateView();
+        function updateView() {
+            let html = '';
+            for (i = 0; i < handlekurv.length; i++)
+
+                html += /*HTML*/ `
+            <li>    
+            ${handlekurv[i]}
+            <button onclick="changeItem(${i})">Changes</button>
+            <button onclick="deleteItem(${i})">x</button>
+            </li>`;
+
+            html += /*HTML*/`<input oninput="inputValue = this.value" type="text"> <button onclick="addItem()">Legg til</button>`;
+
+            document.getElementById("app").innerHTML = html;
+        }
+
+
+        //controller
+
+        function addItem(){
+            handlekurv.push(inputValue);
+            inputValue = "";
+            updateView();
+        }
+
+        function deleteItem(index){
+            handlekurv.splice(index,1)
+            updateView();
+        }
+
+        function changeItem(index){
+            handlekurv[index] = inputValue;
+            updateView();
+        }
+
+      
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

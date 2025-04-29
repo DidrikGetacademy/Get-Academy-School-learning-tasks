@@ -1,0 +1,54 @@
+<!DOCTYPE html> <!-- Deklarerer dokumenttypen som HTML5 -->
+<html lang="en"> <!-- Åpner HTML-dokumentet med engelsk som språk -->
+<head> <!-- Starter hodeavsnittet -->
+    <meta charset="UTF-8"> <!-- Angir tegnsettet som UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Konfigurerer visningsporten for responsivt design -->
+    <title>Document</title> <!-- Angir tittelen på dokumentet -->
+    <style> <!-- Starter CSS-stilene -->
+        .textClass{ <!-- Definerer en CSS-regel for klassen "textClass" -->
+            font-size: 200%; <!-- Setter skriftstørrelsen til 200% -->
+        }
+    </style> <!-- Avslutter stilarket -->
+</head> <!-- Avslutter hodeavsnittet -->
+<body> <!-- Starter kroppsavsnittet -->
+    <div id="app"></div> <!-- Oppretter en div med ID "app" -->
+
+    <script> <!-- Starter JavaScript-seksjonen -->
+        //modell
+
+        const app = document.getElementById('app');//  <!-- Henter elementet med ID "app" og lagrer det i variabelen "app" -->
+        const morseCodeArray = [ '...'];//  <!-- Oppretter en konstant "morseCodeArray" med morsekodeverdier -->
+        const alphabetArray = "abcdefghijklmnopqrstuvwxyz æøå"; // <!-- Oppretter en konstant "alphabetArray" med bokstaver -->
+        let userInput = " "; //  <!-- Oppretter en variabel "userInput" med startverdien mellomrom -->
+        let morseCode = "";  // <!-- Oppretter en variabel "morseCode" uten startverdi -->
+
+        //View
+
+        View(); //  <!-- Kaller funksjonen "View" for å initialisere visningen -->
+
+        function View(){ //  <!-- Definerer en funksjon "View" for å generere HTML-innhold -->
+            app.innerHTML = `
+            <div class="textClass">
+                <div>Oversett til morsekode<div> <!-- Legger til en overskrift i HTML -->
+                <input type="text" onchange="userInputText(this)"> <!-- Legger til et inntastingsfelt og kaller "userInputText" ved endring -->
+                <div>${userInput}<div> <!-- Viser brukerens inndata -->
+            </div>
+
+            <div><h6>${morseCode}<h6></div> <!-- Viser morsekodeoversettelsen -->
+            `;
+        }
+
+        function userInputText(textFromUserInput){ //  <!--//  Definerer funksjonen "userInputText" for håndtering av brukerens inndata -->
+            userInput = textFromUserInput.value.toUpperCase(); //  <!-- Lagrer brukerens inndata i "userInput" og gjør det til store bokstaver -->
+            for(letters of textFromUserInput.value){//  <!--  Gjennomgår hver bokstav i brukerens inndata -->
+                let singleUserLetterInput = letters;//  <!--  Lagrer hver bokstav i variabelen "singleUserLetterInput" -->
+                let alphabetLetters = alphabetArray.indexOf(singleUserLetterInput); // <!-- Finn indeksen til bokstaven i "alphabetArray" -->
+                morseCode += morseCodeArray[alphabetLetters] + " "; // <!-- Legger til morsekode for bokstaven i "morseCode" med mellomrom -->
+            }
+
+            View(); //  <!-- Oppdaterer visningen -->
+            morseCode = " "; //  <!-- Nullstiller "morseCode" for neste oversettelse -->
+        }
+    </script> <!-- Avslutter JavaScript-seksjonen -->
+</body> <!-- Avslutter kroppsavsnittet -->
+</html> <!-- Avslutter HTML-dokumentet -->

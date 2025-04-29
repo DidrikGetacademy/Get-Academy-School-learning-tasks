@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tell Vokaler</title>
+</head>
+<body>
+    <h1>Tell Vokaler</h1>
+
+    <div>
+        <label for="tekst">Skriv inn en tekst:</label>
+        <input type="text" id="tekst" />
+        <button onclick="tellVokaler()">Tell</button>
+    </div>
+
+    <div id="resultat">
+   
+    </div>
+
+    <script>
+        function tellVokaler() {
+       
+            var tekstInput = document.getElementById('tekst').value;
+
+     
+            var aCounter = 0;
+            var eCounter = 0;
+            var iCounter = 0;
+            var oCounter = 0;
+            var uCounter = 0;
+            var yCounter = 0;
+            var aeCounter = 0;
+            var oeCounter = 0;
+            var aaCounter = 0;
+
+            for (var i = 0; i < tekstInput.length; i++) {
+                var bokstav = tekstInput[i].toLowerCase();
+
+                switch (bokstav) {
+                    case 'a':
+                        aCounter++;
+                        break;
+                    case 'e':
+                        eCounter++;
+                        break;
+                    case 'i':
+                        iCounter++;
+                        break;
+                    case 'o':
+                        oCounter++;
+                        break;
+                    case 'u':
+                        uCounter++;
+                        break;
+                    case 'y':
+                        yCounter++;
+                        break;
+                    case 'æ':
+                        aeCounter++;
+                        break;
+                    case 'ø':
+                        oeCounter++;
+                        break;
+                    case 'å':
+                        aaCounter++;
+                        break;
+                }
+            }
+
+     
+            var resultatDiv = document.getElementById('resultat');
+            resultatDiv.innerHTML = `
+                Antall 'a': ${aCounter}<br>
+                Antall 'e': ${eCounter}<br>
+                Antall 'i': ${iCounter}<br>
+                Antall 'o': ${oCounter}<br>
+                Antall 'u': ${uCounter}<br>
+                Antall 'y': ${yCounter}<br>
+                Antall 'æ': ${aeCounter}<br>
+                Antall 'ø': ${oeCounter}<br>
+                Antall 'å': ${aaCounter}<br>
+            `;
+        }
+    </script>
+</body>
+</html>

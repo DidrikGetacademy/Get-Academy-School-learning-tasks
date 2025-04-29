@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chatBot</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+
+    <script>
+        //modell
+        let messageInput = '';
+        let result = '';
+        const delayInMs = 1001;
+
+
+        //view
+        View();
+        function View() {
+            const app = document.getElementById('app');
+            app.innerHTML = /*HTML*/ `
+
+             <input type="text" onInput="messageInput = this.value">
+             <button onclick="sendMessage()">Send</button>
+             <div>${result}</div>`;
+}
+
+
+        //controller
+        function sendMessage() {
+            result += `user: ${messageInput}<br>`;
+            View();
+            setTimeout(() => {
+                botReply();
+                
+            }, delayInMs);
+        }
+
+
+        function botReply() {
+            let chatbotmessage = messageInput.toLocaleLowerCase();
+
+            if(messageInput == 'Hei'){
+                chatbotmessage = `Hei hvordan går det?<br>`
+            }
+
+            else if(messageInput == 'det går bra'){
+                chatbotmessage = 'det var godt og høre :D<br>'
+            }
+            else if(messageInput == 'jeg har et spørsmål'){
+                chatbotmessage = 'hva kan jeg hjelpe deg med?<br>'
+
+            }else if(messageInput == 'hva er 1+1 ?'){
+                chatbotmessage = ' 1 + 1 er 2.<br>'
+            }
+            else chatbotmessage = `<br>....?<br>`
+            result += `chatbot: ${chatbotmessage}`
+            View();
+        }
+
+
+
+ </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting App</title>
+</head>
+
+
+
+
+
+<body>
+
+
+    <button onclick="increment()">+</button>
+        <button id="output">0</button>
+    <button onclick="decrement()">-</button>
+
+    <script>
+
+
+
+        var outputdiv = document.getElementById('output');
+        var numtoshow = 0;
+
+
+
+
+        function increment() {
+            if (numtoshow < 1000) {
+                numtoshow++;
+            }
+            outputdiv.innerHTML = numtoshow;
+        }
+
+
+
+
+        function decrement() {
+            if (numtoshow > -1000) {
+                numtoshow--;
+            }
+            outputdiv.innerHTML = numtoshow;
+        }
+
+
+    </script>
+</body>
+</html>

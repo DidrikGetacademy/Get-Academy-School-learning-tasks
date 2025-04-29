@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+
+    <input id="textInput" type="text" />
+    <button onclick="printNumbers()">print Numbers</button>
+    <div id="numbers"></div>
+
+
+    <script>
+        // hvordan printe ut tall fra 1-20 med 2 gangen
+        function printNumbers() {
+            //lage startvariabel og sette startverdi
+            // en betingelse for hvor lenge løkken skal kjøre
+            //hva skal skje med startvariabel
+            let stopValue = 10;
+            for (let counter = 1; counter <= stopValue;  counter++) {
+                document.getElementById('numbers').innerHTML += '<li>' + counter  + '</li>';
+            }
+
+
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

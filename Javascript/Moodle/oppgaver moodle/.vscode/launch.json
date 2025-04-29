@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open 8ball.html",
+            "file": "c:\\Users\\Didrik\\OneDrive\\Skrivebord\\Koding og skole\\Get Academy\\Moodle\\oppgaveliste emne 1\\8ball(ikke ferdig)\\8ball.html"
+        }
+    ]
+}

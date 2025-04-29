@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+
+    <script>
+        const app = document.getElementById('app');
+        const pocketStuff = ['Hat', 'Pencil', 'dinosaur']
+
+
+        view();
+        function view(){
+            let html = ``;
+            html += /*HTML*/ ` 
+            <button onclick="seeWhatsInPocket()">see contents of pockets!</button>
+           `;
+
+
+
+            app.innerHTML = html;
+            
+        }
+
+function seeWhatsInPocket(){
+    for( let i = 0; i < pocketStuff.length; i++){
+        app.innerHTML = `<div>på runde ${i}  i loopen ser jeg  ${pocketStuff[i++]}</div>
+        på runde ${i}  i loopen ser jeg  ${pocketStuff[i++]}<br>
+        på runde ${i}  i loopen ser jeg  ${pocketStuff[i++]}
+        `;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+        
+
+/*Denne videoen viser hvordan man looper igjennom et array - og kan se ett og ett element i nettleserkonsollen. 
+Bruk en for loop og eksperimenter videre for å få til å heller vise dette i viewet*/
+</script>
+</body>
+</html>

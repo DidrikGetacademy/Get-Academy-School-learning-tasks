@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //modell:
+
+        model = {
+            sykkel: [
+                {
+                    merke: 'trehjulssykkel',
+                    by: 'skien',
+                    pris: '100'
+                },
+
+                {
+
+                    merke: 'voksensykkel',
+                    by: 'Oslo',
+                    pris: '500'
+                },
+                {
+                    merke: 'sportsykkel',
+                    by: 'porsgrunn',
+                    pris: '99'
+                },
+                {
+                    merke: 'elektrisksykkel',
+                    by: 'horten',
+                    pris: '900'
+                }
+            ],
+
+            input: {
+                merke: "",
+                by: "",
+                pris: "",
+            },
+          
+         
+            
+
+            
+        };
+
+        //View
+        View();
+        function View() {
+            let html = '';
+
+
+    
+            html += /*HTML*/ `<h2>Alle sykler:</h2>`;
+    
+            for (i = 0; i < model.sykkel.length; i++) {
+                html += /*html*/ `<h4><li>
+                    ${model.sykkel[i].merke},
+                    ${model.sykkel[i].by}-- koster;
+                    ${model.sykkel[i].pris}kr timen</li>`;
+            };
+  
+                 html += /*HTML*/ `
+                <br><button onclick="LeggTilSykkel()">legg til ny sykkel</button> 
+                <button onclick="ledigesykler()">se ledige sykler</button> `;
+            document.getElementById('app').innerHTML = html;
+        };
+
+
+
+
+        function LeggTilSykkel() {
+            let html = '';
+            html += /*HTML*/ `
+           Merke:<input type="text" placeholder="skriv inn merke på sykkel"  onchange="model.input.merke = this.value"><br>
+           by:<input type="text" placeholder="skriv inn by" onchange="model.input.by = this.value"><br>
+           Pris:<input type="number" placeholder="skriv inn pris" onchange="model.input.pris = this.value"><br>
+           <button onclick="nysykkelObjekt()">Lagre</button>
+           `;
+            document.getElementById('app').innerHTML = html;
+        };
+
+
+     
+        function ledigesykler() {
+            let html = '';
+            let avaiable = model.sykkel
+            for( let i = 0; i < avaiable.length; i++){
+                html += /*HTML*/ `
+                <div>${avaiable[i].merke}</div>
+                `;
+            }
+            html += /*HTML*/ `
+           <button onclick="View()">se alle sykler</button>
+           `;
+            document.getElementById('app').innerHTML = html;
+        }
+
+
+        //controller
+        function nysykkelObjekt() {
+            model.sykkel.unshift(model.input)
+            View();
+        }
+
+
+
+
+</script>
+</body>
+</html>

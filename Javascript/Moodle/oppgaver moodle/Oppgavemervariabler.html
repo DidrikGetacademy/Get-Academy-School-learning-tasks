@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variabler</title>
+</head>
+<body>
+    
+<div id="output"></div><br>
+<button onclick="setnum(16)">set number to 16</button>
+<button onclick="setnum(47)">set number to 47</button>
+<br><br>
+<button onclick="increaseNum()">increase number by one</button>
+<button onclick="secondNum()">add 2</button>
+
+
+<script>
+
+var outputDiv = document.getElementById('output');
+var numToshow = 0;
+
+function setnum(selectedNum){
+    numToshow = selectedNum;
+    outputDiv.innerHTML = numToshow;
+}
+
+function increaseNum(){
+    numToshow++;
+    //numtoshow = numtoshow + 1
+    outputDiv.innerHTML = numToshow;
+}
+
+function secondNum(){
+    var number2 = 2;
+    outputDiv.innerHTML = numToshow + number2; 
+    console.log(numToshow,)
+}
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Definerer dokumentets tegnsett og visningsinnstillinger -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Styling for alle div-elementer i dokumentet */
+        div {
+            font-size: 60pt;
+        }
+
+        /* Styling for alle knappelementer */
+        button {
+            font-size: 50pt;
+            background-color: #333333;
+            color: white;
+        }
+
+        /* Styling for det ytre gearshifter-container-elementet */
+        #gearshifter {
+            /* Bakgrunnsfarge og tekstfarge */
+            background-color: black;
+            color: white;
+            /* Størrelse og form */
+            padding-top: 120px;
+            padding-left: 80px;
+            width: 400px;
+            height: 360px;
+            border-radius: 50%;
+            border: 1px solid black;
+            /* Definisjon av grid for å plassere elementer i rutenett */
+            display: grid;
+            grid-template-columns: repeat(8, 40px);
+            grid-template-rows: repeat(6, 40px);
+            grid-template-areas:
+                "gearR gearR gear1 gear1 gear3 gear3 gear5 gear5"
+                "gearR gearR gear1 gear1 gear3 gear3 gear5 gear5"
+                "a b c d e f g h"
+                "i j k l m n o p"
+                "x x gear2 gear2 gear4 gear4 gear6 gear6"
+                "x x gear2 gear2 gear4 gear4 gear6 gear6"
+            ;
+        }
+
+        /* Styling for innholdet i gearshifter-container-elementet */
+        #gearshifter>div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Styling for div-elementer med klasse "left" */
+        div.left {
+            border-left: 2px solid white;
+        }
+
+        /* Styling for div-elementer med klasse "right" */
+        div.right {
+            border-right: 2px solid white;
+        }
+
+        /* Styling for div-elementer med klasse "top" */
+        div.top {
+            border-top: 2px solid white;
+        }
+
+        /* Styling for div-elementer med klasse "bottom" */
+        div.bottom {
+            border-bottom: 2px solid white;
+        }
+
+        /* Styling for elementer med klassen "selected" */
+        .selected {
+            border: 3px dashed hotpink;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Plass for å vise gearshifter-elementene -->
+    <div id="gearshifter">
+    </div>
+    <script>
+        // Starter med å vise nøytral tilstand
+        showGearshifterNeutral();
+
+        // Funksjon for å vise nøytral tilstand
+        function showGearshifterNeutral() {
+            document.getElementById('gearshifter').innerHTML = /*HTML*/`
+                <button style="grid-area: gearR;">R</button>
+                <button style="grid-area: gear1;" onclick="showGearshifter1()">1</button>
+                <button style="grid-area: gear2;">2</button>
+                <button style="grid-area: gear3;">3</button>
+                <button style="grid-area: gear4;">4</button>
+                <button style="grid-area: gear5;">5</button>
+                <button style="grid-area: gear6;">6</button>        
+            `;
+            showGearshifterLines();
+        }
+
+        // Funksjon for å vise 1. gir
+        function showGearshifter1() {
+            document.getElementById('gearshifter').innerHTML = /*HTML*/`
+                <div style="grid-area: gearR;">R</div>
+                <button style="grid-area: gear1;">1</button>
+                <button style="grid-area: gear2;" onclick="showGearshifter2()">2</button>
+                <div style="grid-area: gear3;">3</div>
+                <div style="grid-area: gear4;">4</div>
+                <div style="grid-area: gear5;">5</div>
+                <div style="grid-area: gear6;">6</div>  
+                <button style="grid-area: x"  onclick="showGearshifterNeutral()">N</button>                  
+            `;
+            showGearshifterLines();
+        }
+
+        // Funksjon for å vise 2. gir
+        function showGearshifter2() {
+            document.getElementById('gearshifter').innerHTML = /*HTML*/`
+                <div style="grid-area: gearR;">R</div>
+                <button style="grid-area: gear1;"  onclick="showGearshifter1()">1</button>
+                <div style="grid-area: gear2;" class="selected">2</div>
+                <button style="grid-area: gear3;"  onclick="showGearshifter3()">3</button>
+                <div style="grid-area: gear4;">4</div>
+                <div style="grid-area: gear5;">5</div>
+                <div style="grid-area: gear6;">6</div>  
+                <button style="grid-area: x" onclick="showGearshifterNeutral()">N</button>            
+            `;
+            showGearshifterLines();
+        }
+
+        // Funksjon for å vise rutenettlinjene
+        function showGearshifterLines() {
+            document.getElementById('gearshifter').innerHTML += /*HTML*/`
+                <div style="grid-area: a"></div>
+                <div style="grid-area: b" class="left bottom"></div>
+                <div style="grid-area: c" class="right bottom"></div>
+                <div style="grid-area: d" class=" bottom"></div>
+                <div style="grid-area: e" class=" bottom right"></div>
+                <div style="grid-area: f" class=" bottom"></div>
+                <div style="grid-area: g" class=" bottom right"></div>
+                <div style="grid-area: h"></div>
+                <div style="grid-area: i"></div>
+                <div style="grid-area: j"></div>
+                <div style="grid-area: k" class="right "></div>
+                <div style="grid-area: l"></div>
+                <div style="grid-area: m" class=" right"></div>
+                <div style="grid-area: n"></div>
+                <div style="grid-area: o" class=" right"></div>
+                <div style="grid-area: p"></div>
+            `;
+        }
+    </script>
+</body>
+
+</html>

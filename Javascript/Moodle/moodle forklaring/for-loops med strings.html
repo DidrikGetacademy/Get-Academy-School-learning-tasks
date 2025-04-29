@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="letters"></div>
+    <button onclick="countvocals('aeiouæøå')">tell opp antall vokaler</button>
+
+    <script>
+
+        function countvocals(inputString) {
+            let aCounter = 0;
+            let eCounter = 1;
+            let iCounter = 2;
+            let oCounter = 3;
+            let uCounter = 4;
+            let æCounter = 5;
+            let øCounter = 6;
+            let åCounter = 7;
+
+            for (let i = 0; i < inputString.length; i++) {
+
+
+                let char = inputString[i].toLowerCase();
+
+                if (char === 'a') {
+                    aCounter++;
+                }
+                else if (char === 'e') {
+                    eCounter++;
+                }
+                else if (char === 'i') {
+                    iCounter++;
+                }
+                else if (char === 'o') {
+                    oCounter++;
+                }
+                else if (char === 'u') {
+                    uCounter++;
+                }
+                else if (char === 'æ') {
+                    æCounter++;
+                }
+                else if (char === 'ø') {
+                    øCounter++;
+                }
+                else if (char === 'å') {
+                    åCounter++;
+                }
+            }
+
+            document.getElementById("letters").innerHTML = `
+ 
+antall 'a': ${aCounter}<br>
+antall 'e': ${eCounter}<br>
+antall 'i': ${iCounter}<br>
+antall 'o': ${oCounter}<br>
+antall 'u': ${uCounter}<br>
+antall 'æ': ${æCounter}<br>
+antall 'ø': ${øCounter}<br>
+antall 'å': ${åCounter}<br>
+`;
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let myCounter;
+        let myText = 'Hei jeg heter Bjarne'
+        
+        // function updateView(){
+        //     document.getElementById('app').innerHTML = /*HTML*/ `
+        //     <div><div>
+        //     `
+        // }
+        //loop()
+        function loop(){
+            for(let counter = 0;counter <= 10; counter++){
+                console.log('counter: '+ counter)
+            }
+        }
+        //loopPartall();
+        function loopPartall(){
+            console.log('loop kjører')
+            for(let counter = 2;counter <= 20; counter +=2){
+                console.log('counter: '+ counter)
+            }
+        }
+        //printLetters()
+        function printLetters(){
+            for(let counter = 0;counter < myText.length; counter++){
+                //console.log('letter at position: ' + counter + ' letter: ' + myText[counter])
+                console.log('letter at position: ' + counter + ' letter: ' + myText.charAt(counter))
+            }
+        }
+        //whileLoop();
+        function whileLoop(){
+            let i =0;
+            while(i<11){
+                console.log('counter: '+ i)
+                i++;
+            }
+        }
+        //whileLoopWithBool()
+        function whileLoopWithBool(){
+            let i =0;
+            let isRunning = true;
+            while(isRunning){
+                console.log('counter: '+ i)
+                i++;
+
+                if(i == 10){
+                    console.log('finishing loop by changing condition')
+                    isRunning = false;
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="letters"></div>
+    <button onclick="countVowels('a ee iii oooo uuuu æ øøøøøøø ååååååå')">Tell opp antall vokaler</button>
+
+    <script>
+        function countVowels(inputString) {
+            const vowelCounts = {};
+            const vowels = ['a', 'e', 'i', 'o', 'u', 'æ', 'ø', 'å'];
+
+            for (let i = 0; i < vowels.length; i++) {
+                vowelCounts[vowels[i]] = 0;
+            }
+
+            for (let i = 0; i < inputString.length; i++) {
+                let char = inputString[i].toLowerCase();
+                if (vowels.includes(char)) {
+                    vowelCounts[char]++;
+                }
+            }
+
+            let result = '';
+
+            for (let i = 0; i < vowels.length; i++) {
+                result += `antall '${vowels[i]}': ${vowelCounts[vowels[i]]}<br>`;
+            }
+
+            document.getElementById("letters").innerHTML = result;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Letters
+        <div id="Letters"></div>
+        <input type="text" id="textInput" placeholder="Skriv inn tekst">
+        <button onclick="reverseText()">Reverser tekst</button>
+    </div>
+
+    <script>
+        function reverseText() {
+            // Hent teksten fra inputfeltet
+            var inputString = document.getElementById('textInput').value;
+
+            // Initialiser en tom streng for den reverserte teksten
+            var reversedString = '';
+
+            // Loop gjennom teksten baklengs
+            for (var i = inputString.length - 1; i >= 0; i--) {
+                reversedString += inputString[i]; // Legg til hvert tegn i den reverserte strengen
+            }
+
+            // Sett den reverserte teksten i HTML-elementet
+            document.getElementById('Letters').innerHTML = reversedString;
+        }
+    </script>
+</body>
+</html>

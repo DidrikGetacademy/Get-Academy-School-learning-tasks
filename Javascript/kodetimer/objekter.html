@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id="app"></div>
+   
+   <script>
+ let handleKurv = ['banan','apple'];
+ let selectedItem = 'Nothing';
+ let selectedIndex = 1;
+
+ handleKurv.push('iskrem');
+
+updateview()
+function updateview(){
+    document.getElementById('app').innerHTML =`
+    <div>${selectedItem}</div>
+    <button onclick="showItemNumber1()">showItem1</button>
+    `;
+}
+
+function showItemNumber1(){
+    selectedItem = handleKurv[0]
+    updateview();
+}
+
+function showSelectedIndexItem(){
+    selectedItem = handleKurv[selectedIndex]
+    updateview();
+}
+
+   </script>
+</body>
+</html>

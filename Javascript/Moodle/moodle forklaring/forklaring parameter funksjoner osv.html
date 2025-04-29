@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrafikkLys</title>
+
+    <!-- Stildefinisjoner -->
+    <style>
+        /* Stil for trafikklys-containeren */
+        #trafikklys {
+            width: 200px;
+            height: 400px;
+            background-color: grey;
+            border-radius: 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Stil for rødt lys */
+        .rød {
+            background-color: red;
+            opacity: 10%;
+        }
+
+        /* Stil for oransje lys */
+        .orange {
+            background-color: orange;
+            opacity: 10%;
+        }
+
+        /* Stil for grønt lys */
+        .grønn {
+            background-color: green;
+            opacity: 10%;
+        }
+
+        /* Stil for lysene som sirkler */
+        .sirkel {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+        }
+
+        /* Stil for aktivt lys */
+        .active {
+            opacity: 100%;
+        }
+
+        /* Stil for knapper */
+        .buttons {
+            display: flex;
+            position: absolute;
+            top: 410px;
+            left: 12px;
+        }
+    </style>
+</head>
+
+<body onload="lightTimer()">
+    <!-- Trafikklys-container -->
+    <div id="trafikklys">
+        <div id="rød" class="rød sirkel"></div>
+        <div id="orange" class="orange sirkel"></div>
+        <div id="grønn" class="grønn sirkel"></div>
+
+        <!-- Knapper for å kontrollere trafikklyset -->
+        <div class="buttons">
+            <button onclick="activeLight('grønn', 'orange', 'rød', 'rød')">rød</button>
+            <button onclick="activeLight('grønn', 'grønn', 'rød', 'orange')">rød og orange</button>
+            <button onclick="activeLight('rød', 'orange', 'grønn', 'grønn')">grønn</button>
+            <button onclick="activeLight('rød', 'grønn', 'orange', 'orange')">orange</button>
+        </div>
+
+        <script>
+            // Funksjon for å aktivere oransje lys
+            function activeOrange() {
+                activeLight('rød', 'grønn', 'orange', 'orange');
+            }
+
+            // Funksjon for å starte trafikklystimeren
+            function lightTimer() {
+                setTimeout(activeRed, 1000);
+            }
+
+            // Funksjon for å aktivere grønt lys
+            function activeGreen() {
+                activeLight('rød', 'orange', 'grønn', 'grønn');
+                setTimeout(activeOrange, 2000);
+            }
+
+            // Funksjon for å aktivere trafikklys
+            function activeLight(divID1, divID2, divID3, divID4) {
+                document.getElementById(divID1).classList.remove("active");
+                document.getElementById(divID2).classList.remove("active");
+                document.getElementById(divID3).classList.add("active");
+                document.getElementById(divID4).classList.add("active");
+            }
+
+            // Funksjon for å aktivere rødt lys
+            function activeRed() {
+                activeLight('grønn', 'orange', 'rød', 'rød');
+                setTimeout(activeRedAndOrange, 1000);
+            }
+
+            // Funksjon for å aktivere rødt og oransje lys
+            function activeRedAndOrange() {
+                activeLight('grønn', 'grønn', 'rød', 'orange');
+                setTimeout(activeGreen, 1000);
+            }
+
+          //  Denne koden oppretter en trafikklys-simulering med funksjoner for å endre lysene i henhold til trafikklysetider.//
+            // Kommentarene forklarer hva hver del av koden gjør, inkludert styling, lys-elementer, knapper og funksjoner for å styre trafikklyset. //
+            //Koden bruker også variabler og tidsfunksjoner for å kontrollere trafikklysetimingen.//
+
+        </script>
+</body>
+
+</html>

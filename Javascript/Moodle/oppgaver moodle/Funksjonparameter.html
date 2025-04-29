@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Ukesoppgave.css">
+    <script src="ukesoppgave.js"></script>
+    <title>Min Nettside</title>
+</head>
+
+
+<body>
+
+    <div id="maindiv"></div>
+    <button onclick="valgfrittnavn('red',50,100)">test 1</button>
+    <button onclick="valgfrittnavn('blue',75,200)">test 2</button>
+
+
+    <script>
+        function valgfrittnavn(color, width, height) {
+            document.getElementById('maindiv').innerHTML = /*html*/`
+           <div style="background-color:${color}; width: ${width}%; height:${height}px; "></div>
+           `;
+        }
+
+
+    </script>
+
+</body>
+
+</html>
+
+
+ Knapp 1 skal endre farge tekst og størrelse <br>
+        knapp 2 skal endre farge tekst og størrelse i samme div. 

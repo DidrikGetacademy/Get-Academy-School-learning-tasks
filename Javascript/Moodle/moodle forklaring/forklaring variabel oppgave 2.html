@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oppgave mer om Variabler</title>
+</head>
+
+<style>
+    /* Stildefinisjoner for fargede og tomme div-elementer */
+    .red {
+        background-color: red;
+        padding: 5% 0;
+        width: 250px;
+        user-select: none;
+    }
+
+    .blue {
+        background-color: blue;
+        padding: 5% 0;
+        width: 250px;
+        user-select: none;
+    }
+
+    .green {
+        background-color: green;
+        padding: 5% 0;
+        width: 250px;
+        user-select: none;
+    }
+
+    .container {
+        display: inline-block;
+    }
+
+    .emptydiv1 {
+        border: 1px solid grey;
+        padding: 5% 0;
+        width: 200px;
+    }
+
+    .emptydiv2 {
+        border: 1px solid grey;
+        padding: 5% 0;
+        width: 200px;
+    }
+</style>
+
+<body>
+    <div>
+        <!-- Fargede div-elementer som kan klikkes for å velge en farge -->
+        <div id="fargecontainer">
+            <div onclick="colorred()" class="red container"></div>
+            <div onclick="colorblue()" class="blue container"></div>
+            <div onclick="colorgreen()" class="green container"></div>
+        </div>
+
+        <!-- Knapp som endrer bakgrunnsfargen på tomme div-elementer -->
+        <button onclick="changecurrentcolor()">ChangeColor on empty div</button>
+
+        <!-- Tomme div-elementer som representerer de valgte fargene -->
+        <div id="emptycontainer1" class=" emptydiv1"></div>
+        <div id="emptycontainer2" class=" emptydiv2"></div>
+    </div>
+
+    <script>
+        // Global variabel for å lagre valgt farge
+        let color;
+
+        // Funksjon for å velge rød farge
+        function colorred() {
+            color = 'red';
+            document.getElementById('emptycontainer1').style.background = color;
+        }
+
+        // Funksjon for å velge blå farge
+        function colorblue() {
+            color = 'blue';
+            document.getElementById('emptycontainer1').style.background = color;
+        }
+
+        // Funksjon for å velge grønn farge
+        function colorgreen() {
+            color = 'green';
+            document.getElementById('emptycontainer1').style.background = color;
+        }
+
+        // Funksjon for å endre bakgrunnsfargen på den andre tomme div-en
+        function changecurrentcolor() {
+            document.getElementById('emptycontainer2').style.background = color;
+        }
+
+
+
+       // Denne koden oppretter en enkel interaktiv nettside som lar brukeren velge farger og deretter endre bakgrunnsfargen på tomme div-elementer basert på fargene som er valgt.//
+      //Variabelen color brukes til å lagre den valgte fargen, og de ulike funksjonene oppdaterer denne variabelen og endrer bakgrunnsfargen på de tomme div-elementene. //
+     //Kommentarene forklarer hva hver del av koden gjør og hvordan variabler brukes til å holde styr på brukerens valg.//
+    </script>
+</body>
+
+</html>

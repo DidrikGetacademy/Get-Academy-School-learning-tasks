@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoppeklokke</title>
+
+    <!-- Stildefinisjoner -->
+    <style>
+        /* Stil for hovedcontaineren */
+        .Container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            border-radius: 270px;
+            padding-left: 50px;
+            position: relative;
+        }
+
+        /* Stil for knapper */
+        .buttonstyle {
+            background-color: grey;
+            height: 35px;
+            width: 85px;
+            border-radius: 25px;
+            color: white;
+            text-align: center;
+        }
+
+        /* Stil for tidsviser */
+        .tidsviser {
+            width: 60px;
+            height: 25px;
+            background-color: white;
+            border-radius: 50px;
+            text-align: center;
+            position: absolute;
+            top: 16%;
+            right: 30%;
+        }
+
+        /* Stil for tidsviser for runde tider */
+        .tidsviser2 {
+            width: 149px;
+            height: 150px;
+            background-color: white;
+            border-radius: 50px;
+            text-align: center;
+            position: absolute;
+            top: 40%;
+            right: 15%;
+        }
+
+        /* Stil for resetknapp */
+        .resetstyle{
+            background-color: grey;
+            height: 40px;
+            width: 85px;
+            border-radius: 25px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hovedcontainer -->
+    <div class="Container">
+        <!-- Startknapp -->
+        <h2><Button id="disablebutton" class="buttonstyle" onclick="startTimer()">StartTimer</Button></h2>
+        <!-- Resetknapp -->
+        <button id="reset" class="resetstyle" onclick="resetTimer()">Reset Timer</button><br>
+        <!-- Rundetid-knapp -->
+        <button id="disablebutton" class="buttonstyle" onclick="timeRounds()">Time Rounds</button>
+        <!-- Stopp og fjern-knapp -->
+        <h2><button id="disablebutton" class="buttonstyle" onclick="stopAll()">stop timer&Fjern</button></h2>
+
+        <!-- Tidsviser for nåværende tid -->
+        <div id="app" class="tidsviser"></div>
+        <!-- Tidsviser for rundetider -->
+        <div id="roundTime" class="tidsviser2"></div>
+
+    <script>
+        // Henter elementet for nåværende tid
+        const app = document.getElementById('app')
+        // Henter elementet for rundetider
+        const lastTime = document.getElementById('roundTime')
+        // Initialiserer variabelen for antall sekunder
+        let seconds = 0;
+        // Variabel for setInterval funksjonen
+        let timerInterval;
+        // Variabel for startknappen
+        const button = document.getElementById('disablebutton')
+
+        // Starter timeren
+        function startTimer() {
+            // Setter opp en interval for å kalle countSeconds hvert sekund
+            setInterval(countSeconds, 1000);
+            // Deaktiverer startknappen etter at timeren har startet
+            button.disabled = true;
+        }
+
+        // Funksjon for å øke antall sekunder
+        function countSeconds() {
+            // Viser nåværende tid i tidsviser-elementet
+            app.innerHTML = seconds;
+            // Øker antall sekunder med 1
+            seconds++;
+        }
+
+        // Funksjon for å registrere rundetid
+        function timeRounds(){
+            // Legger til en ny rundetid i rundetid-elementet
+            lastTime.innerHTML += `<li>${seconds-1} sekunder`;
+        }
+
+        // Funksjon for å stoppe timeren og tilbakestille alt
+        function stopAll(){
+            // Laster inn siden på nytt for å stoppe alt
+            location.reload()
+        }
+
+        // Funksjon for å tilbakestille timeren
+        function resetTimer(){
+            // Fjerner den eksisterende intervalen
+            clearInterval(timerInterval);
+            // Nullstiller tidsviser-elementet
+            app.innerHTML = 0;
+            // Nullstiller antall sekunder
+            seconds = 0;
+        }
+
+
+
+        //Denne koden oppretter en stoppeklokke med funksjoner for å starte, stoppe, ta rundetider og tilbakestille klokken. //
+      //Kommentarene forklarer hva hver del av koden gjør, inkludert styling, knapper, tidsvisere og funksjoner for tidsbehandling.//
+       //Koden bruker variabler til å holde styr på tiden og interaksjonene med brukeren.//
+    </script>
+</body>
+</html>

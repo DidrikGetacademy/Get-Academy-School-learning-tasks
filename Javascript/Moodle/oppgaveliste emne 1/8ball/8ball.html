@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8ball</title>
+    <style>
+        .ball{
+            width: 300px;
+            height: 300px;
+            border-radius: 60%;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="app"></div>
+
+
+
+
+
+
+
+    <script>
+//modell
+var spåsvar = ["Du vil bli kjempe rik", " imorgen vil du ha en fin dag ", "du vil oppnå noe bra innen uken er omne", " idag kan det skje noe spesielt, noe positivt"]
+let result = 8;
+
+
+//View
+View();
+function View(){
+let html = ''
+
+html += /*HTML*/ `
+<div onclick="ballfunksjon()" class="ball">
+    <div>
+        <h4>${result}<h4>
+            
+    </div>
+    </div>
+`;
+
+ document.getElementById("app").innerHTML = html;
+}
+
+
+
+
+
+
+//Contoller
+function ballfunksjon(){
+let randomIndex = Math.floor(Math.random() * spåsvar.length);
+result = spåsvar[randomIndex]
+
+
+View();
+}
+
+
+// Bruk MVC, variabler, arrays og random for å løse oppgaven.
+</script>
+</body>
+</html>

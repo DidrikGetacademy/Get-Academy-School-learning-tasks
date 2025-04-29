@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVC oppsett</title>
+</head>
+
+<body>
+
+<div id="app"></div>
+
+
+<script>
+ //Modell
+let name = "___";
+let Land = "___";
+let Jobb = "___";
+
+
+//View
+updateview();
+function updateview() {
+let html = /*HTML*/ `
+                
+<div class="group">
+jeg heter <div>${name}</div> og jeg bor i <div>${Land}</div> og har lyst til og jobbe med <div>${Jobb}</div> i fremtiden<div>
+</div>
+                                       
+<button class="buttons" onclick="land()">Norge</button>
+<button class="buttons" onclick="land2()">Spania</button>
+<button class="buttons" onclick="egetnavn()">Didrik</button>
+<button class="buttons" onclick="egetnavn2()">Daniel</button>
+<button class="buttons" onclick="jobben1()">Data</button>
+<button class="buttons" onclick="jobben2()">Koding</button>
+ `
+ document.getElementById('app').innerHTML = html;
+}
+
+//Controller
+function egetnavn() {
+            name = "Didrik";
+            updateview(); 
+        }
+        function egetnavn2() {
+            name = "Daniel";
+            updateview();
+        }
+
+        function land() {
+           Land = "Norge"
+           updateview();
+        }
+        function land2() {
+            Land = "Spania"
+            updateview();
+        }
+
+        function jobben1() {
+            Jobb = "Data";
+            updateview();
+        }
+
+        function jobben2() {
+            Jobb = "koding";
+            updateview();
+        }
+
+
+
+
+
+
+    </script>
+    <style>
+        .Tekst {
+            background: lightblue;
+            height: 20px;
+            width: 400px;
+        }
+
+        .group {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+        }
+
+        .buttons {
+            background-color: lightblue;
+            border-radius: 60px;
+            height: 60px;
+            width: 60px;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let myCounter;
+        let myText = 'Hei jeg heter Bjarne'
+        
+        // function updateView(){
+        //     document.getElementById('app').innerHTML = /*HTML*/ `
+        //     <div><div>
+        //     `
+        // }
+        //loop()
+        function loop(){
+            for(let counter = 0;counter <= 10; counter++){
+                console.log('counter: '+ counter)
+            }
+        }
+        //loopPartall();
+        function loopPartall(){
+            console.log('loop kjører')
+            for(let counter = 2;counter <= 20; counter +=2){
+                console.log('counter: '+ counter)
+            }
+        }
+        //printLetters()
+        function printLetters(){
+            for(let counter = 0;counter < myText.length; counter++){
+                //console.log('letter at position: ' + counter + ' letter: ' + myText[counter])
+                console.log('letter at position: ' + counter + ' letter: ' + myText.charAt(counter))
+            }
+        }
+        //whileLoop();
+        function whileLoop(){
+            let i =0;
+            while(i<11){
+                console.log('counter: '+ i)
+                i++;
+            }
+        }
+        //whileLoopWithBool()
+        function whileLoopWithBool(){
+            let i =0;
+            let isRunning = true;
+            while(isRunning){
+                console.log('counter: '+ i)
+                i++;
+
+                if(i == 10){
+                    console.log('finishing loop by changing condition')
+                    isRunning = false;
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="letters"></div>
+    <button onclick="countVowels('a ee iii oooo uuuu æ øøøøøøø ååååååå')">Tell opp antall vokaler</button>
+
+    <script>
+        function countVowels(inputString) {
+            const vowelCounts = {};
+            const vowels = ['a', 'e', 'i', 'o', 'u', 'æ', 'ø', 'å'];
+
+            for (let i = 0; i < vowels.length; i++) {
+                vowelCounts[vowels[i]] = 0;
+            }
+
+            for (let i = 0; i < inputString.length; i++) {
+                let char = inputString[i].toLowerCase();
+                if (vowels.includes(char)) {
+                    vowelCounts[char]++;
+                }
+            }
+
+            let result = '';
+
+            for (let i = 0; i < vowels.length; i++) {
+                result += `antall '${vowels[i]}': ${vowelCounts[vowels[i]]}<br>`;
+            }
+
+            document.getElementById("letters").innerHTML = result;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Numbers
+    <div id="display"></div>
+    <button onclick="multiplyby2()">multiply by 2</button>
+    <div id="text"></div>
+    <button onclick="getfirstword()">get first word</button>
+   </div>
+
+    
+<script>
+
+function multiplyby2(){
+    let number = 2;
+    while(number <= 100){
+        number = number * 2;
+        document.getElementById('display').innerHTML += number + ' ';
+    }
+}
+
+function getfirstword(){
+    let text ='bjarne liker alfabetet';
+    let seperator = '';
+    let firstword = '';
+    let index = 0;
+
+   while(seperator !== ' '){
+    if (text.charAt(index) === ' '){
+        seperator = ' ';
+    }
+    firstword += text.charAt(index);
+    index++;
+    document.getElementById('text').innerHTML += firstword + ' ';
+   }
+}
+
+
+
+
+
+
+
+
+/*Lag en funksjon som generer 2 random tall så lenge tallene er ulike fra hverandre. Når de er like print ut teksten "Equal numbers found" - samt hvilke tall det ble =)
+kan eventuelt også console.log() tallene for hver runde
+OBS: Nettleseren er ikke glad i å oppdatere view mens i en while-loop!*/
+    </script>
+</body>
+</html>

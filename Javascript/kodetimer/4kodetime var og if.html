@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Definerer dokumentets tegnsett og kompatibilitetsmodus for Internet Explorer -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Definerer visningsinnstillinger for enheters bredde -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<!-- Oppretter et HTML-div-element med ID "myDiv" og innholdet "Hei" -->
+<div id="myDiv">Hei</div>
+
+
+
+
+<!-- Oppretter knapper med onclick-attributter som kaller forskjellige funksjoner -->
+<button onclick="setColor('pink')">Change color to pink</button>
+<button onclick="setColor('blue')">Change color to Blue</button>
+<button onclick="changeText('En eller annen tekst')">change text</button>
+
+
+
+<!-- Oppretter et inntastingsfelt med ID "myInput" og onchange-attributter som kaller funksjonen "setText()" -->
+<input id="myInput" onchange="setText()">
+
+
+
+<!-- Oppretter et inntastingsfelt med onchange-attributter som kaller funksjonen "setTextWithThis()" -->
+<input onchange="setTextWithThis(this.value)">
+<script>
+
+
+
+
+    // Initialiserer variabler
+    let currentColor;
+    let currentText;
+    let isPink = false;
+
+
+
+
+    // Funksjon for å bytte farge mellom rosa og blå
+    function TogglePink(){
+        if(isPink == true){
+            document.getElementById('myDiv').style.backgroundColor = 'pink'
+        }else{
+            document.getElementById('myDiv').style.backgroundColor = 'blue'
+        }
+    }
+
+
+
+
+    // Funksjon for å endre teksten i "myDiv"-elementet
+    function changeText(text){
+        document.getElementById('myDiv').innerHTML = text
+    }
+
+    // Funksjon for å sette farge (currentColor) som en variabel for oppdatering
+    function setColor(color){
+        currentColor = color;
+        updateView();
+    }
+
+
+
+    // Funksjon for å oppdatere visningen basert på currentColor og currentText
+    function updateView(){
+        document.getElementById('myDiv').style.backgroundColor = currentColor;
+        document.getElementById('myDiv').innerHTML = currentText;
+    }
+
+
+    
+
+    // Funksjon for å oppdatere currentText med verdien fra inntastingsfeltet
+    function setText(){
+        currentText = document.getElementById('myInput').value;
+    }
+
+    // Funksjon for å oppdatere currentText med verdien fra det aktuelle inntastingsfeltet
+    function setTextWithThis(inputValue){
+        currentText = inputValue;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Definerer dokumentets tegnsett, kompatibilitet med IE, og visningsinnstillinger for enhetens bredde -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Inkluderer ekstern CSS-fil "styles.css" -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Oppretter en div med id 'app' som vil bli fylt med innhold ved hjelp av JavaScript -->
+    <div id="app"></div>
+    <script>
+        // Setter innholdet i 'app'-diven til å være resultatet fra funksjonen "createDateSelector()"
+        document.getElementById('app').innerHTML = createDateSelector(17, 8, 2023);
+
+        // Definerer funksjonen "createDateSelector()" som lager et datovelger-element
+        function createDateSelector(day, month, year) {
+            // Returnerer en sammensatt HTML-struktur med tre "createNumberSelector()" kall
+            return /*HTML*/`
+                <div class="container">
+                    ${createNumberSelector(day, 1, 31)}
+                    ${createNumberSelector(month, 1, 12)}
+                    ${createNumberSelector(year, 2000, 2023)}
+                </div>            
+            `;
+        }
+
+        // Definerer funksjonen "createNumberSelector()" som lager et tallvelger-element
+        function createNumberSelector(number, min, max) {
+            // Beregner verdier for øk-knapp, ned-knapp, og deaktivering av knapper basert på tallgrenser
+            let numberUp = number + 1;
+            let numberDown = number - 1;
+            let disabledUp = numberUp > max ? 'disabled' : '';
+            let disabledDown = numberDown < min ? 'disabled' : '';
+            
+            // Returnerer en sammensatt HTML-struktur for tallvelgeren med knapper
+            return /*HTML*/`
+                <div class="container">
+                    <div id="Day" style="font-size: 300%;">${number}</div>
+                    <div class="buttons">
+                        <!-- Kaller "selectDay()" med inkrementert eller dekrementert tall, avhengig av grensene -->
+                        <button onclick="selectDay(${numberUp})" ${disabledUp}>▲</button>
+                        <button onclick="selectDay(${numberDown})" ${disabledDown}>▼</button>
+                    </div>
+                </div>            
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script>
+        //modell
+        let students = [];
+        let studentResult = '';
+        
+        
+        //view
+        KastSvenskenUnderBussen();
+        updateView();
+        function updateView(){
+            document.getElementById('app').innerHTML = /*HTML*/ `
+            <input onchange="printStudent(this.value)">
+            <div>${printstudentArray()}</div>
+            <button onclick="PrintStudentrandom()">get random text</button>
+            <div>${studentResult}</div>
+            
+            `
+        }
+        function PrintStudentrandom(){
+            let formel = Math.floor(Math.random() * students.length)
+            studentResult = students[formel];
+            updateView();
+        }
+        
+        
+        function printstudentArray(){
+            let studentsHtml = ``;
+            for(let i = 0; i < students.length; i++){
+                studentsHtml += `<div>${students[i]}</div>`
+            }
+            return studentsHtml;
+        }
+        
+        
+        
+        
+        function printStudent(value){
+                students.push(value)
+                updateView();
+            }
+
+        
+            function KastSvenskenUnderBussen(){
+                printStudent('hei')
+                printStudent('hade')
+            }
+    
+            
+        
+        
+            
+        
+        
+        
+
+
+    </script>
+</body>
+</html>
